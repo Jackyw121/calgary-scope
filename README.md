@@ -1,59 +1,70 @@
-# capstone-project
-Capstone project for Spring 2023
+# Getting Started with Create React App
 
-Calgary Scope Web App
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-The Calgary Scope web app is a platform designed to assist parents in connecting with valuable resources to support children with disabilities. It aims to provide a centralized hub of information, services, and support networks within the city of Calgary, Canada.
-Table of Contents
+## Available Scripts
 
-    Installation
-    Usage
-    Features
-    Configuration
-    Contributing
-    License
+In the project directory, you can run:
 
-Installation
+### `npm start`
 
-To access the Calgary Scope web app, simply visit the website www.calgaryscope.com in your web browser. There is no additional installation or setup required.
-Usage
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The Calgary Scope web app offers a range of features to assist parents in finding and accessing resources for children with disabilities:
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-    Resource Directory: Explore a comprehensive directory of resources, including educational programs, therapy services, support groups, advocacy organizations, and more. Use the search functionality and filters to narrow down the results based on specific needs or preferences.
+### `npm test`
 
-    Events and Workshops: Stay informed about upcoming events, workshops, seminars, and conferences related to disabilities and child development. Get details about dates, locations, registration, and any associated costs.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-    Community Forums: Engage in discussions with other parents, caregivers, and professionals within the Calgary community. Share experiences, seek advice, and provide support to one another.
+### `npm run build`
 
-    Articles and Guides: Access a collection of articles, guides, and blog posts covering various topics related to disabilities, parenting, education, and therapies. Learn from experts, gather insights, and stay updated with the latest trends and research.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-    Contact and Support: Connect with professionals, service providers, and support networks directly through the app. Find contact information, helplines, and email addresses for further assistance.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-Features
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-The Calgary Scope web app offers the following key features to support parents of children with disabilities:
+### `npm run eject`
 
-    Comprehensive Resource Database: Access an extensive database of resources tailored to the needs of children with disabilities. The database is regularly updated and includes information on educational programs, therapy services, funding opportunities, and more.
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-    User Recommendations: Benefit from recommendations and reviews provided by other parents and caregivers within the Calgary community. Find trusted resources and services based on firsthand experiences and feedback.
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-    Personalized Profiles: Create a personalized profile within the app to save favorite resources, track attended events, and receive tailored recommendations based on your preferences and child's needs.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-    Notification System: Stay informed about relevant updates, new resources, and upcoming events through push notifications or email alerts based on your notification preferences.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-Contributing
+## Learn More
 
-We welcome contributions to improve the Calgary Scope web app and expand its resource offerings. If you would like to contribute, please follow these steps:
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-    Fork the repository on GitHub.
-    Make your desired changes or additions.
-    Submit a pull request, clearly describing the changes you have made and the motivation behind them.
-    Our team will review your contribution, provide feedback, and merge it if appropriate.
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-Please ensure that you adhere to the project's code of conduct and guidelines for contributing.
-License
+### Code Splitting
 
-The Calgary Scope web app is released under the MIT License. You are free to use, modify, and distribute the software in accordance with the terms and conditions of the license.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-For further information, refer to the LICENSE file in this repository.
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
