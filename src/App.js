@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          This is the capstone
+          This is the capstone project. This is filler text to test
         </a>
       </header>
     </div>
