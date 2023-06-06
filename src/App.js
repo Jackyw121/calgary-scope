@@ -24,7 +24,7 @@ return (
 		<Navbar bg="dark" variant="dark">
 			<Container>
 			<Navbar.Brand>
-				<Link to={"/create-student"}
+				<Link to={"/home"}
 				className="nav-link">
 				Calgary Scope
 				</Link>
@@ -32,14 +32,14 @@ return (
 
 			<Nav className="justify-content-end">
 				<Nav>
-				<Link to={"/create-student"}
+				<Link to={"/create-account"}
 					className="nav-link">
 					Create Account
 				</Link>
 				</Nav>
 
 				<Nav>
-				<Link to={"/student-list"}
+				<Link to={"/log-in"}
 					className="nav-link">
 					Log in
 				</Link>
