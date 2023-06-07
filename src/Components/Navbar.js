@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
-
+const pages = ['Home', 'Services', 'About']
 
 // Using Inline Styling
 const useStyles = makeStyles((theme) => ({
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 	menuButton: {
 		marginRight: theme.spacing(2),
 	},
-    
+
 }));
 
 // Exporting Default Navbar to the App.js File
@@ -26,7 +26,7 @@ export default function Navbar() {
 
 	return (
 		<div className={classes.root}>
-			<AppBar position="static">
+			<AppBar position="static" color ="secondary">
 				<Toolbar variant="dense">
 					<Typography variant="h3" color="inherit">
 						Scope
