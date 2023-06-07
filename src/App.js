@@ -21,7 +21,7 @@ return (
 	<Router>
 	<div className="App">
 		<header className="App-header">
-		<Navbar bg="dark" variant="dark">
+		<Navbar bg="danger" variant="dark">
 			<Container>
 			<Navbar.Brand>
 				<Link to={"/home"}
