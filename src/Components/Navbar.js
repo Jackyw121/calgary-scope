@@ -53,7 +53,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static" color="danger">
+    <AppBar position="sticky" color="danger">
       <Toolbar>
       <IconButton>
         <img src={require("./Assets/scopeLogo.webp")} alt="Calgary Scope Logo" style={{width: 200, height: 50 }}/>
