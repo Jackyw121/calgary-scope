@@ -1,0 +1,19 @@
+.textfield{
+    border: none;
+    border-bottom: 1px solid rgba(82, 82, 82, 0.215);
+    margin-bottom: 2%;
+}
+
+.submitbutton {
+    border: none;
+    border-radius: 5px;
+    padding: 1%;
+    background-color: rgb(51, 197, 255);
+    color: white;
+}
+
+.fakelink{
+    color: blue;
+    text-decoration: underline;
+    text-decoration-color: blue;
+}

@@ -14,13 +14,15 @@ import { BrowserRouter as Router, Routes,
 	Route, Link } from "react-router-dom";
 //import navbar
 import Navbar from "./Components/Navbar";
+//import sign in form
+import Form from "./Components/Form";
 
 
 // App Component
 const App = () => {
     return (
         <>
-            <Navbar />
+            <Navbar/>
         </>
     );
 }
