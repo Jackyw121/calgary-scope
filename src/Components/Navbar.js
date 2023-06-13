@@ -77,6 +77,11 @@ const Navbar = () => {
               </Button>
               </Link>}
           </Box>
+         <Link to="/create-account"> 
+        <Button color="secondary">
+          Sign up
+        </Button>
+        </Link>
         <Button color="secondary" onClick={handleOpen}>
           Log in
         </Button>
