@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import Link from '@mui/material/Link';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,33 +26,17 @@ const useStyles = makeStyles(theme => ({
 const Form = ({ handleClose }) => {
   const classes = useStyles();
   // create state variables for each input
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(firstName, lastName, email, password);
+    console.log(email, password);
     handleClose();
   };
 
   return (
     <form className={classes.root} onSubmit={handleSubmit}>
-      <TextField
-        label="First Name"
-        variant="filled"
-        required
-        value={firstName}
-        onChange={e => setFirstName(e.target.value)}
-      />
-      <TextField
-        label="Last Name"
-        variant="filled"
-        required
-        value={lastName}
-        onChange={e => setLastName(e.target.value)}
-      />
       <TextField
         label="Email"
         variant="filled"
@@ -72,8 +58,14 @@ const Form = ({ handleClose }) => {
           Cancel
         </Button>
         <Button type="submit" variant="contained" color="secondary">
-          Signup
+          Log in
         </Button>
+      </div>
+      <div>
+        <Link href='/create-account'>Create an Account</Link>
+      </div>
+      <div>
+      <Link href='/forgot-password'>Forgot Password?</Link>
       </div>
     </form>
   );

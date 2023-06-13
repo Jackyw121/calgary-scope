@@ -78,7 +78,7 @@ const Navbar = () => {
               </Link>}
           </Box>
         <Button color="secondary" onClick={handleOpen}>
-          Signup
+          Log in
         </Button>
       </Toolbar>
       <ModalDialog open={open} handleClose={handleClose} />

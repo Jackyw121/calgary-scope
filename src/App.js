@@ -20,6 +20,7 @@ import Form from "./Components/Form";
 import HomePage from "./Pages/Home/HomePage";
 import AboutUs from "./Pages/Home/AboutUs"
 import Services from "./Pages/Home/Services"
+import CreateAccount from "./Pages/Login/CreateAccout";
 
 // App Component
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
                 <Route exact path="" element={< HomePage />}></Route>
                 <Route exact path="/about-us" element={< AboutUs />}></Route>
                 <Route exact path="/services" element={< Services />}></Route>
+                <Route exact path="/create-account" element={< CreateAccount/>}></Route>
             </Routes>
         </Router>
         </>

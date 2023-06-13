@@ -7,7 +7,7 @@ const ModalDialog = ({ open, handleClose }) => {
   return (
     // props received from App.js
     <Dialog open={open} onClose={handleClose}>
-      <Typography align='center' variant='h5' color='secondary'>Sign Up</Typography>
+      <Typography  align='center' variant='h5' color='secondary'>Log in</Typography>
       <Form handleClose={handleClose} />
     </Dialog>
   );
