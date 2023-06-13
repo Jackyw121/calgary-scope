@@ -2,7 +2,7 @@
 import React from "react";
 
 // Import Bootstrap
-import { Nav, Navbar, Container, Row, Col }
+import {Container, Row, Col }
 		from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -12,47 +12,31 @@ import "./App.css";
 // Import from react-router-dom
 import { BrowserRouter as Router, Routes,
 	Route, Link } from "react-router-dom";
-
-
+//import navbar
+import Navbar from "./Components/Navbar";
+//import sign in form
+import Form from "./Components/Form";
+//import home
+import HomePage from "./Pages/Home/HomePage";
+import AboutUs from "./Pages/Home/AboutUs"
+import Services from "./Pages/Home/Services"
+import CreateAccount from "./Pages/Login/CreateAccout";
 
 // App Component
 const App = () => {
-return (
-	<Router>
-	<div className="App">
-		<header className="App-header">
-		<Navbar bg="dark" variant="dark">
-			<Container>
-			<Navbar.Brand>
-				<Link to={"/create-student"}
-				className="nav-link">
-				Calgary Scope
-				</Link>
-			</Navbar.Brand>
-
-			<Nav className="justify-content-end">
-				<Nav>
-				<Link to={"/create-student"}
-					className="nav-link">
-					Create Account
-				</Link>
-				</Nav>
-
-				<Nav>
-				<Link to={"/student-list"}
-					className="nav-link">
-					Log in
-				</Link>
-				</Nav>
-			</Nav>
-			</Container>
-		</Navbar>
-		</header>
-
-
-	</div>
-	</Router>
-);
-};
-
+    return (
+        <>
+        <Router>
+            <Navbar/>
+            <Routes>
+                <Route exact path="" element={< HomePage />}></Route>
+                <Route exact path="/about-us" element={< AboutUs />}></Route>
+                <Route exact path="/services" element={< Services />}></Route>
+                <Route exact path="/create-account" element={< CreateAccount/>}></Route>
+            </Routes>
+        </Router>
+        </>
+    );
+}
+ 
 export default App;
