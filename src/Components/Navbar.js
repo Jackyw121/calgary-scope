@@ -55,9 +55,11 @@ const Navbar = () => {
   return (
     <AppBar position="sticky" color="danger">
       <Toolbar>
+      <Link to="">
       <IconButton>
         <img src={require("./Assets/scopeLogo.webp")} alt="Calgary Scope Logo" style={{width: 200, height: 50 }}/>
       </IconButton>
+      </Link>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             { <Link to="">
               <Button color='secondary'>
