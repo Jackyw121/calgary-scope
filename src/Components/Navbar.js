@@ -6,12 +6,12 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import MenuIcon from '@material-ui/icons/Menu';
 import ModalDialog from "./modalDialog";
+import {
+  BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 
 const pages = ['Home', 'Services','About us'];
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -59,15 +59,21 @@ const Navbar = () => {
         <img src={require("./Assets/scopeLogo.webp")} alt="Calgary Scope Logo" style={{width: 200, height: 50 }}/>
       </IconButton>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button color='secondary'
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
+            { <Link to="">
+              <Button color='secondary'>
+              Home
               </Button>
-            ))}
+              </Link>}
+              {<Link to="/services">
+              <Button color='secondary'>
+              Services
+              </Button>
+              </Link>}
+              {<Link to="/about-us">
+              <Button color='secondary'>
+              About us
+              </Button>
+              </Link>}
           </Box>
         <Button color="secondary" onClick={handleOpen}>
           Signup

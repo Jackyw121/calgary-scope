@@ -1,16 +1,8 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import Typography from '@material-ui/core/Typography';
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
-import { red, orange } from '@mui/material/colors';
-import Checkbox from '@mui/material/Checkbox';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { red,  } from '@mui/material/colors';
 
-const CustomCheckbox = styled(Checkbox)(({ theme }) => ({
-    color: theme.status.danger,
-    '&.Mui-checked': {
-      color: theme.status.danger,
-    },
-  }));
 
   const theme = createTheme({
     status: {
