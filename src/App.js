@@ -16,13 +16,16 @@ import { BrowserRouter as Router, Routes,
 import Navbar from "./Components/Navbar";
 //import sign in form
 import Form from "./Components/Form";
-
+//import homepage
+import HomePage from "./Pages/Home/HomePage";
 
 // App Component
 const App = () => {
     return (
         <>
             <Navbar/>
+            <HomePage/>
+            
         </>
     );
 }
