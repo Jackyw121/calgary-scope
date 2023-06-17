@@ -67,6 +67,9 @@ const Form = ({ handleClose }) => {
       <div>
       <Link href='/forgot-password'>Forgot Password?</Link>
       </div>
+      <div>
+      <Link href='/employee-login'>Are you an Employee?</Link>
+      </div>
     </form>
   );
 };
