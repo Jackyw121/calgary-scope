@@ -11,6 +11,7 @@ const getClients = async (req, res) => {
 
 // get single client
 const getClient = async (req, res) => {
+    console.log(req.params)
     const { id } = req.params
 
     const client = await Client.findById(id)
@@ -43,8 +44,17 @@ const createClient = async (req, res) => {
 
 // delete client
 
+const deleteClient = async (req, res) => {
+    //delete client from db
+    const { id } = req.params
+
+    const client = await Client.deleteOne(id)
+
+    res.status(200).json(client)
+}
+
 // update client
 
 module.exports = {
-    createClient, getClient, getClients
+    createClient, getClient, getClients, deleteClient
 }

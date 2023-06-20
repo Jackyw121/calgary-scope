@@ -1,6 +1,6 @@
 const express = require('express')
 const {
-    createClient, getClient, getClients
+    createClient, getClient, getClients, deleteClient
 } = require('../controllers/clientController')
 
 const Client = require('../models/clientModel')
@@ -18,9 +18,7 @@ router.post('/', createClient
 )
 
 //DELETE a new login
-router.delete('/:id', (req, res) => {
-    res.json({mssg: 'DELETE a new login'})
-})
+router.delete('/:id', deleteClient)
 
 //UPDATE a new login
 router.patch('/:id', (req, res) => {
