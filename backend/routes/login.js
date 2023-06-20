@@ -1,4 +1,5 @@
 const express = require('express')
+const Client = require('../models/clientModel')
 
 const router = express.Router()
 
@@ -13,8 +14,14 @@ router.get('/:id', (req, res) => {
 })
 
 //POST a new login
-router.post('/', (req, res) => {
-    res.json({mssg: 'POST a new login'})
+router.post('/', async (req, res) => {
+    const {name, email, phone} = req.body
+    try{
+        const client = await Client.create({name, email, phone})
+        res.status(200).json(client)
+    } catch(error){
+        res.status(400).json({error: error.message})
+    }
 })
 
 //DELETE a new login
