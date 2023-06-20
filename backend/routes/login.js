@@ -1,28 +1,21 @@
 const express = require('express')
+const {
+    createClient, getClient, getClients
+} = require('../controllers/clientController')
+
 const Client = require('../models/clientModel')
 
 const router = express.Router()
 
 //GET all logins
-router.get('/', (req, res) => {
-    res.json({mssg: 'GET all logins'})
-})
+router.get('/', (getClients))
 
 //GET a single login
-router.get('/:id', (req, res) => {
-    res.json({mssg: 'GET a single login'})
-})
+router.get('/:id', (getClient))
 
 //POST a new login
-router.post('/', async (req, res) => {
-    const {name, email, phone} = req.body
-    try{
-        const client = await Client.create({name, email, phone})
-        res.status(200).json(client)
-    } catch(error){
-        res.status(400).json({error: error.message})
-    }
-})
+router.post('/', createClient
+)
 
 //DELETE a new login
 router.delete('/:id', (req, res) => {
