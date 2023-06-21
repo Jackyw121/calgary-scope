@@ -48,13 +48,39 @@ const deleteClient = async (req, res) => {
     //delete client from db
     const { id } = req.params
 
-    const client = await Client.deleteOne(id)
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: 'No such client'})
+    }
+
+    const client = await Client.findOneAndDelete({_id: id})
+
+    if (!client) {
+        return res.status(404).json({error: 'No such client'})
+    }
 
     res.status(200).json(client)
 }
 
 // update client
+const updateClient = async (req, res) => {
+    const { id } = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: 'No such client'})
+    }
+
+    const client = await Client.findOneAndUpdate({_id: id}, {
+        ...req.body
+    })
+    
+    if (!client) {
+        return res.status(404).json({error: 'No such client'})
+    }
+    
+    res.status(200).json(client)
+}
+
 
 module.exports = {
-    createClient, getClient, getClients, deleteClient
+    createClient, getClient, getClients, deleteClient, updateClient
 }
