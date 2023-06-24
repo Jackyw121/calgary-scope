@@ -29,7 +29,6 @@ const Admin = () => {
             <ClientDetails key = {client._id} client={client}/>
         ))}
     </div>
-    <ClientCreateAccount/>
  </div>
 )
 }
