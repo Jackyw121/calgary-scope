@@ -45,13 +45,13 @@ header a {
   margin: 20px auto;
   padding: 20px;
   position:  relative;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 2px 2px 5px rgba(243, 5, 5, 0.274);
 }
 
 .client-details h4 {
   margin: 0 0 10px 0;
   font-size: 1.2em;
-  color: var(--primary);
+  color: var(--error);
 }
 
 .client-details p {

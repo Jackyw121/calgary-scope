@@ -5,6 +5,7 @@ const ClientDetails = ({ client}) => {
             <p><strong>Name: </strong>{client.name}</p>
             <p><strong>Email: </strong>{client.email}</p>
             <p><strong>Phone: </strong>{client.phone}</p>
+            <p><strong>Client Forms:</strong><button>View forms</button></p>
             <p>{client.createdAt}</p>
         </div>
     )
