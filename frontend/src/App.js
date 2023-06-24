@@ -1,5 +1,7 @@
 // Import React
 import React from "react";
+import { Box } from "@mui/material";
+import { palette } from '@mui/system';
 
 // Import Bootstrap
 import {Container, Row, Col }
@@ -24,6 +26,7 @@ import Admin from "./Pages/Admin"
 const App = () => {
     return (
         <>
+
         <Router>
             <Navbar/>
             <Routes>
@@ -34,7 +37,10 @@ const App = () => {
                 <Route exact path="/admin" element={< Admin/>}></Route>
             </Routes>
         </Router>
+        <Box sx={{color: 'error.main'}}>
+        </Box>
         </>
+        
     );
 }
  
