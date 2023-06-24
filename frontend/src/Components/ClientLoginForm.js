@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import TextField from '@mui/material/TextField';
 
 const ClientLoginForm = () => {
     const [name, setName] = useState('')
@@ -35,6 +36,13 @@ const ClientLoginForm = () => {
     return (
         <form className='create' onSubmit={handleSubmit}>
             <h3>Add a new client</h3>
+
+        <TextField
+          required
+          id="outlined-required"
+          label="Required"
+          defaultValue="Hello World"
+        />
 
 
             <label>Name:</label>

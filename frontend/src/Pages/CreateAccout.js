@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
 import Button from '@material-ui/core/Button';
-import { useState } from 'react'
+import { useState } from 'react';
+import TextField from '@mui/material/TextField';
 
 const ClientCreateAccount = () => {
     const [name, setName] = useState('')
@@ -36,34 +38,48 @@ const ClientCreateAccount = () => {
     }
 
     return (
+    <Box
+    component="form"
+    sx={{
+        '& .MuiTextField-root': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+        
         <form className='create' onSubmit={handleSubmit}>
             <h3>Create an account</h3>
 
 
-            <label>Name:</label>
-            <input
-                type="text"
-                onChange={(e) => setName(e.target.value)}
-                value={name}
-            />
 
-            <label>Phone:</label>
-            <input
-                type="text"
-                onChange={(e) => setPhone(e.target.value)}
-                value={phone}
-            />
+        <TextField
+          required
+          id="outlined-required"
+          label="Name"
+          onChange={(e) => setName(e.target.value)}
+          value={name}
+        />
 
-            <label>Email:</label>
-            <input
-                type="text"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-            />
-            
-            <button>Add Client Info</button>
+        <TextField
+          required
+          id="outlined-required"
+          label="Phone"
+          onChange={(e) => setPhone(e.target.value)}
+          value={phone}
+        />
+        <TextField
+          required
+          id="outlined-required"
+          label="Email"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
+        <div>
+            <Button variant='contained' color = 'secondary'>Sign up</Button>
+        </div>
             {error && <div className='error'>{error}</div>}
         </form>
+        </Box>
     )
 }
 
