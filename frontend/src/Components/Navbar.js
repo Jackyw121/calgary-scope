@@ -76,6 +76,11 @@ const Navbar = () => {
               About us
               </Button>
               </Link>}
+              {<Link to="/admin">
+              <Button color='secondary'>
+              Admin
+              </Button>
+              </Link>}
           </Box>
          <Link to="/create-account"> 
         <Button color="secondary">
