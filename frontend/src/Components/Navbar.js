@@ -53,7 +53,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="sticky" color="danger">
+    <AppBar position="sticky" color="transparent">
       <Toolbar>
       <Link to="">
       <IconButton>

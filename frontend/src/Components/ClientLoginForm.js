@@ -9,9 +9,9 @@ const ClientLoginForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const client = [name, phone, email]
+        const client = {name, phone, email}
 
-        const response = await fetch('/api/workoutss', {
+        const response = await fetch('/api/login', {
             method: 'POST',
             body: JSON.stringify(client),
             headers: {
@@ -34,7 +34,7 @@ const ClientLoginForm = () => {
 
     return (
         <form className='create' onSubmit={handleSubmit}>
-            <h3>Add a new workout</h3>
+            <h3>Add a new client</h3>
 
 
             <label>Name:</label>
@@ -58,7 +58,7 @@ const ClientLoginForm = () => {
                 value={email}
             />
             
-            <button>Add client info</button>
+            <button>Add Client Info</button>
             {error && <div className='error'>{error}</div>}
         </form>
     )

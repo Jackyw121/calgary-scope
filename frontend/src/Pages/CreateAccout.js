@@ -1,61 +1,70 @@
 import React, { Component } from 'react';
+import Stack from '@mui/material/Stack';
 import Button from '@material-ui/core/Button';
+import { useState } from 'react'
 
-export class CreateAccount extends Component {
-    constructor() {
-        super()
-      
-        this.state = {
-           userName: '',
-           password: '',
-           email: '',
-           confirmPassword: ''
+const ClientCreateAccount = () => {
+    const [name, setName] = useState('')
+    const [phone, setPhone] = useState('')
+    const [email, setEmail] = useState('')
+    const [error, setError] = useState('')
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        const client = {name, phone, email}
+
+        const response = await fetch('/api/login', {
+            method: 'POST',
+            body: JSON.stringify(client),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        const json = await response.json()
+
+        if (!response.ok) {
+            setError(json.error)
         }
-  
-        this.displayUser = this.displayUser.bind(this)
-      }
-      handleUsername = event => {
-          this.setState({ userName: event.target.value});
-      }
-      handleEmail = event => {
-        this.setState({ email: event.target.value});
+        if (response.ok) {
+            setName('')
+            setPhone('')
+            setEmail('')
+            setError(null)
+            console.log('New Client Added', json)
+        }
     }
-      handlePassword = event => {
-          this.setState({ password: event.target.value});
-      }
-      handleConfirmPassowrd = event => {
-          this.setState({ confirmPassword: event.target.value})
-      }
-      displayUser({}) {
-          if (this.state.password !== this.state.confirmPassword) {
-            alert('Your password does not match')
-          }
-          else {
-              alert(`Hello ${this.state.userName} your email is ${this.state.email} 
-              and your password is ${this.state.password}`)
-          }
-      }
 
-  render() {
     return (
-        <div>
-            <h1>Sign Up</h1>
-          <form>
-            <div>
-            <input onChange = {this.handleUsername} className = 'textfield' type ='text' placeholder='user name'></input><br></br>
-            <input onChange = {this.handleEmail} className = 'textfield' type ='text' placeholder='email'></input><br></br>
-            <input onChange = {this.handlePassword} className = 'textfield' type ='password' placeholder='password'></input><br></br>
-            <input onChange = {this.handleConfirmPassowrd} className = 'textfield' type ='password' placeholder='confirm password'></input>
-            </div>
-            <div>
-                <Button type="submit" variant="contained" color="secondary">
-                    Create Account
-                </Button>
-            </div>
-          </form>
-        </div>
+        <form className='create' onSubmit={handleSubmit}>
+            <h3>Create an account</h3>
+
+
+            <label>Name:</label>
+            <input
+                type="text"
+                onChange={(e) => setName(e.target.value)}
+                value={name}
+            />
+
+            <label>Phone:</label>
+            <input
+                type="text"
+                onChange={(e) => setPhone(e.target.value)}
+                value={phone}
+            />
+
+            <label>Email:</label>
+            <input
+                type="text"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+            />
+            
+            <button>Add Client Info</button>
+            {error && <div className='error'>{error}</div>}
+        </form>
     )
-  }
 }
 
-export default CreateAccount
+export default ClientCreateAccount

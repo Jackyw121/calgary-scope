@@ -4,6 +4,7 @@ import { useEffect, useState} from 'react'
 //components
 import ClientDetails from '../Components/ClientDetails'
 import ClientLoginForm from '../Components/ClientLoginForm'
+import ClientCreateAccount from './CreateAccout';
  
 const Admin = () => {
     const [clients, setClients] = useState(null)
@@ -28,7 +29,7 @@ const Admin = () => {
             <ClientDetails key = {client._id} client={client}/>
         ))}
     </div>
-    <ClientLoginForm/>
+    <ClientCreateAccount/>
  </div>
 )
 }
