@@ -69,3 +69,13 @@ header a {
   border-radius: 50%;
   color: #333;
 }
+
+/* forms */
+
+.create { 
+  margin: 15ch auto;
+  width:250px;
+  }
+.buttonHolder {
+  text-align: center;
+}

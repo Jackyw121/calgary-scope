@@ -41,17 +41,14 @@ const ClientCreateAccount = () => {
     <Box
     component="form"
     sx={{
-        '& .MuiTextField-root': { m: 1, width: '25ch' },
+        '& .MuiTextField-root': { mx: 1, width: '25ch', marginTop: 2, marginBottom: 3},
       }}
       noValidate
       autoComplete="off"
     >
-        
+
         <form className='create' onSubmit={handleSubmit}>
-            <h3>Create an account</h3>
-
-
-
+        <h3>Create an account</h3>
         <TextField
           required
           id="outlined-required"
@@ -74,8 +71,8 @@ const ClientCreateAccount = () => {
           onChange={(e) => setEmail(e.target.value)}
           value={email}
         />
-        <div>
-            <Button variant='contained' color = 'secondary'>Sign up</Button>
+        <div className='buttonHolder'>
+            <Button variant='contained' color = 'secondary' >Sign up</Button>
         </div>
             {error && <div className='error'>{error}</div>}
         </form>
