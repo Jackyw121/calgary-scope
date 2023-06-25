@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import { useClientContext } from '../Hooks/useClientContext';
 
 const ClientLoginForm = () => {
-    const {dispatch } = useClientContext
+    const {dispatch } = useClientContext()
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
@@ -32,19 +32,13 @@ const ClientLoginForm = () => {
             setEmail('')
             setError(null)
             console.log('New Client Added', json)
+            dispatch({type: 'CREATE_CLIENT', payload: json})
         }
     }
 
     return (
         <form className='create' onSubmit={handleSubmit}>
             <h3>Add a new client</h3>
-
-        <TextField
-          required
-          id="outlined-required"
-          label="Required"
-          defaultValue="Hello World"
-        />
 
 
             <label>Name:</label>

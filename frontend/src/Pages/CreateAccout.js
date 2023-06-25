@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 import { useClientContext } from '../Hooks/useClientContext';
 
 const ClientCreateAccount = () => {
-    const { dispatch } = useClientContext('')
+    const {dispatch } = useClientContext()
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
@@ -15,11 +15,11 @@ const ClientCreateAccount = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const client = {name, phone, email}
+        const clients = {name, phone, email}
 
         const response = await fetch('/api/login', {
             method: 'POST',
-            body: JSON.stringify(client),
+            body: JSON.stringify(clients),
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -41,7 +41,6 @@ const ClientCreateAccount = () => {
 
     return (
     <Box
-    component="form"
     sx={{
         '& .MuiTextField-root': { mx: 1, width: '25ch', marginTop: 2, marginBottom: 3},
       }}
