@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Button from '@material-ui/core/Button';
 import { useState } from 'react';
 import TextField from '@mui/material/TextField';
+import { useClientContext } from '../Hooks/useClientContext';
 
 const ClientCreateAccount = () => {
+    const { dispatch } = useClientContext('')
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
@@ -34,6 +35,7 @@ const ClientCreateAccount = () => {
             setEmail('')
             setError(null)
             console.log('New Client Added', json)
+            dispatch({type: 'CREATE_CLIENT', payload: json})
         }
     }
 
@@ -72,7 +74,7 @@ const ClientCreateAccount = () => {
           value={email}
         />
         <div className='buttonHolder'>
-            <Button variant='contained' color = 'secondary' >Sign up</Button>
+            <Button type='submit' variant='contained' color = 'secondary' >Sign up</Button>
         </div>
             {error && <div className='error'>{error}</div>}
         </form>

@@ -10,7 +10,6 @@ import ModalDialog from "./modalDialog";
 import {
   BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 
-const pages = ['Home', 'Services','About us'];
 
 
 
@@ -34,7 +33,7 @@ const Navbar = () => {
   const handleClose = () => {
     setOpen(false);
   };
-  
+
   return (
     <AppBar position="sticky" color="solid">
       <Toolbar>

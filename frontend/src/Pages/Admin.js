@@ -1,5 +1,6 @@
 import React from 'react';
-import { useEffect, useState} from 'react'
+import { useEffect} from 'react'
+import { useClientContext } from '../Hooks/useClientContext';
 
 //components
 import ClientDetails from '../Components/ClientDetails'
@@ -7,7 +8,7 @@ import ClientLoginForm from '../Components/ClientLoginForm'
 import ClientCreateAccount from './CreateAccout';
  
 const Admin = () => {
-    const [clients, setClients] = useState(null)
+    const {clients, dispatch} = useClientContext()
 
     useEffect(() => {
         const fetchClients = async () => {
@@ -15,7 +16,7 @@ const Admin = () => {
             const json = await response.json()
 
             if (response.ok) {
-                setClients(json)
+                dispatch({type: 'SET_CLIENTS', payload: json})
             }
         }
 

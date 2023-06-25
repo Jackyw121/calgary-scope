@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import TextField from '@mui/material/TextField';
+import { useClientContext } from '../Hooks/useClientContext';
 
 const ClientLoginForm = () => {
+    const {dispatch } = useClientContext
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
@@ -10,11 +12,11 @@ const ClientLoginForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const client = {name, phone, email}
+        const clients = {name, phone, email}
 
         const response = await fetch('/api/login', {
             method: 'POST',
-            body: JSON.stringify(client),
+            body: JSON.stringify(clients),
             headers: {
                 'Content-Type': 'application/json'
             }
