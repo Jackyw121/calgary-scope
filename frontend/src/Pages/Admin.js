@@ -4,8 +4,6 @@ import { useClientContext } from '../Hooks/useClientContext';
 
 //components
 import ClientDetails from '../Components/ClientDetails'
-import ClientLoginForm from '../Components/ClientLoginForm'
-import ClientCreateAccount from './CreateAccout';
  
 const Admin = () => {
     const {clients, dispatch} = useClientContext()
@@ -21,7 +19,7 @@ const Admin = () => {
         }
 
         fetchClients()
-    }, [])
+    }, [dispatch])
 
  return    (
  <div className="admin">
@@ -30,7 +28,6 @@ const Admin = () => {
             <ClientDetails key = {client._id} client={client}/>
         ))}
     </div>
-    <ClientLoginForm/>
  </div>
 )
 }

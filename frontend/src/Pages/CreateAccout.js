@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@material-ui/core/Button';
 import { useState } from 'react';
@@ -73,7 +73,7 @@ const ClientCreateAccount = () => {
           value={email}
         />
         <div className='buttonHolder'>
-            <Button type='submit' variant='contained' color = 'secondary' >Sign up</Button>
+            <Button type='submit' variant='contained' color = 'secondary'>Sign up</Button>
         </div>
             {error && <div className='error'>{error}</div>}
         </form>
