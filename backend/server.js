@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const clientRoutes = require('./routes/client')
+const userRoutes = require('./routes/userLogin')
 
 //express app
 const app = express()
@@ -34,4 +35,5 @@ app.listen(process.env.PORT, () => {
 
 //routes
 app.use('/api/client', clientRoutes)
+app.use('/api/user', userRoutes)
 
