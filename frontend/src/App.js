@@ -14,7 +14,7 @@ import { BrowserRouter as Router, Routes,
 //import navbar
 import Navbar from "./Components/Navbar";
 //import sign in form
-import Form from "./Components/Form";
+import Form from "./Components/FormLogin";
 //import home
 import HomePage from "./Pages/HomePage";
 import AboutUs from "./Pages/AboutUs"

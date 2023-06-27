@@ -23,8 +23,10 @@ const Login = () => {
             <input
             type='password'
             onChange={(e) => setPassword(e.target.value)}
-            value={email}>
+            value={password}>
             </input>
+
+            <button>Log in</button>
         </form>
     )
 }

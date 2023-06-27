@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Form = ({ handleClose }) => {
+const FormLogin = ({ handleClose }) => {
   const classes = useStyles();
   // create state variables for each input
   const [email, setEmail] = useState('');
@@ -74,4 +74,4 @@ const Form = ({ handleClose }) => {
   );
 };
 
-export default Form;
+export default FormLogin;

@@ -1,6 +1,6 @@
 import React from 'react';
 import Dialog from '@material-ui/core/Dialog';
-import Form from './Form';
+import FormLogin from './FormLogin';
 import { Typography } from '@material-ui/core';
 
 const ModalDialog = ({ open, handleClose }) => {
@@ -8,7 +8,7 @@ const ModalDialog = ({ open, handleClose }) => {
     // props received from App.js
     <Dialog open={open} onClose={handleClose}>
       <Typography  align='center' variant='h5' color='secondary'>Log in</Typography>
-      <Form handleClose={handleClose} />
+      <FormLogin handleClose={handleClose} />
     </Dialog>
   );
 };

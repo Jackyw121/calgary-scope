@@ -62,6 +62,16 @@ const Navbar = () => {
               Admin
               </Button>
               </Link>}
+              {<Link to="/login">
+              <Button color='secondary'>
+              Logintest
+              </Button>
+              </Link>}
+              {<Link to="/signup">
+              <Button color='secondary'>
+              Signuptest
+              </Button>
+              </Link>}
           </Box>
          <Link to="/create-account"> 
         <Button color="secondary">
