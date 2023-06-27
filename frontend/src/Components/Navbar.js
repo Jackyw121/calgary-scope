@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import ModalDialog from "./modalDialog";
@@ -35,7 +34,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="sticky" color="solid">
+    <AppBar position="sticky" color="inherit">
       <Toolbar>
       <Link to="">
       <IconButton>
