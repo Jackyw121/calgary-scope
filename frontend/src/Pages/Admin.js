@@ -10,7 +10,7 @@ const Admin = () => {
 
     useEffect(() => {
         const fetchClients = async () => {
-            const response = await fetch('/api/login')
+            const response = await fetch('/api/client')
             const json = await response.json()
 
             if (response.ok) {

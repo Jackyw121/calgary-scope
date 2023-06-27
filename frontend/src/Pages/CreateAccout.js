@@ -17,7 +17,7 @@ const ClientCreateAccount = () => {
 
         const clients = {name, phone, email}
 
-        const response = await fetch('/api/login', {
+        const response = await fetch('/api/client', {
             method: 'POST',
             body: JSON.stringify(clients),
             headers: {

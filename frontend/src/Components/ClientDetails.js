@@ -8,7 +8,7 @@ const ClientDetails = ({ client }) => {
     const { dispatch } = useClientContext()
 
     const handleClick = async () =>{
-        const response = await fetch('/api/login/' + client._id, {
+        const response = await fetch('/api/client/' + client._id, {
             method: 'DELETE'
         })
         const json = await response.json()

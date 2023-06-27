@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const express = require('express')
 const mongoose = require('mongoose')
-const loginRoutes = require('./routes/login')
+const clientRoutes = require('./routes/client')
 
 //express app
 const app = express()
@@ -33,5 +33,5 @@ app.listen(process.env.PORT, () => {
 })
 
 //routes
-app.use('/api/login', loginRoutes)
+app.use('/api/client', clientRoutes)
 

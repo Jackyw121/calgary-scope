@@ -7,20 +7,20 @@ const Client = require('../models/clientModel')
 
 const router = express.Router()
 
-//GET all logins
+//GET all clients
 router.get('/', (getClients))
 
-//GET a single login
+//GET clients
 router.get('/:id', (getClient))
 
-//POST a new login
+//POST a new client
 router.post('/', createClient
 )
 
-//DELETE a new login
+//DELETE a new client
 router.delete('/:id', deleteClient)
 
-//UPDATE a new login
+//UPDATE a new client
 router.patch('/:id', updateClient)
 
 module.exports = router
