@@ -21,6 +21,8 @@ import AboutUs from "./Pages/AboutUs"
 import Services from "./Pages/Services"
 import CreateAccount from "./Pages/CreateAccout";
 import Admin from "./Pages/Admin"
+import Login from "./Pages/Login";
+import Signup from "./Pages/Signup";
 
 // App Component
 const App = () => {
@@ -35,6 +37,8 @@ const App = () => {
                 <Route exact path="/services" element={< Services />}></Route>
                 <Route exact path="/create-account" element={< CreateAccount/>}></Route>
                 <Route exact path="/admin" element={< Admin/>}></Route>
+                <Route exact path="/login" element={< Login/>}></Route>
+                <Route exact path="/signup" element={< Signup/>}></Route>
             </Routes>
         </Router>
         <Box sx={{color: 'error.main'}}>
