@@ -42,13 +42,13 @@ const Navbar = () => {
   return (
     <AppBar position="sticky" color="inherit">
       <Toolbar>
-      <Link to="">
+      <Link to="/home">
       <IconButton>
         <img src={require("./Assets/scopeLogo.webp")} alt="Calgary Scope Logo" style={{width: 200, height: 50 }}/>
       </IconButton>
       </Link>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            { <Link to="">
+            { <Link to="/home">
               <Button color='secondary'>
               Home
               </Button>
@@ -73,9 +73,11 @@ const Navbar = () => {
         <Button color="secondary">
           Sign up
         </Button>
+        <Link href='/home'>
         <Button onClick={handleClick} color="secondary">
           Log out
         </Button>
+        </Link>
         </Link>
         <Button color="secondary" onClick={handleOpen}>
           Log in

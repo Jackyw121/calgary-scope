@@ -66,6 +66,15 @@ const Login = ({ handleClose }) => {
         </Button>
             {error && <div className="error">{error}</div>}
         </Box>
+        <div>
+        <Link href='/signup'>Create an Account</Link>
+        </div>
+        <div>
+        <Link href='/forgot-password'>Forgot Password?</Link>
+        </div>
+        <div>
+        <Link href='/employee-login'>Are you an Employee?</Link>
+        </div>
         </form>
     )
 }
