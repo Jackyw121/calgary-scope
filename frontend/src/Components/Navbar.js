@@ -9,6 +9,7 @@ import ModalDialog from "./modalDialog";
 import {
   BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import { useLogout } from '../Hooks/useLogout';
+import { useAuthContext } from '../Hooks/useAuthContext';
 
 
 
@@ -22,8 +23,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Navbar = () => {
-  const classes = useStyles();
-  const [open, setOpen] = useState(false);
+  const classes = useStyles()
+  
+  const [open, setOpen] = useState(false)
+
+  const { user } = useAuthContext()
 
   const { logout } = useLogout()
 
@@ -48,40 +52,51 @@ const Navbar = () => {
       </IconButton>
       </Link>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            { <Link to="/home">
+             <Link to="/home">
               <Button color='secondary'>
               Home
               </Button>
-              </Link>}
-              {<Link to="/services">
+              </Link>
+              <Link to="/services">
               <Button color='secondary'>
               Services
               </Button>
-              </Link>}
-              {<Link to="/about-us">
+              </Link>
+              <Link to="/about-us">
               <Button color='secondary'>
               About us
               </Button>
-              </Link>}
-              {<Link to="/admin">
+              </Link>
+              {user && (
+              <Link to="/admin">
               <Button color='secondary'>
               Admin
               </Button>
-              </Link>}
+              </Link>              
+              )}
           </Box>
-         <Link to="/signup"> 
-        <Button color="secondary">
-          Sign up
-        </Button>
-        <Link href='/home'>
+        {user && (
+          <div>
+          <Button color='secondary'>{user.email}</Button>
+          <Link href='/home'>
         <Button onClick={handleClick} color="secondary">
           Log out
         </Button>
         </Link>
+          </div>
+        )}
+        {!user && (
+        <div>
+        <Link to="/signup"> 
+        <Button color="secondary">
+        Sign up
+        </Button>
         </Link>
         <Button color="secondary" onClick={handleOpen}>
           Log in
         </Button>
+        </div>
+      )}
       </Toolbar>
       <ModalDialog open={open} handleClose={handleClose} />
     </AppBar>
