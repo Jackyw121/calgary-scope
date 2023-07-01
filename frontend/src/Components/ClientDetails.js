@@ -1,4 +1,5 @@
 import { useClientContext } from "../Hooks/useClientContext"
+import { useAuthContext } from "../Hooks/useAuthContext"
 
 //date fns
 import { format } from 'date-fns'
@@ -6,9 +7,17 @@ import { format } from 'date-fns'
 const ClientDetails = ({ client }) => {
     const { dispatch } = useClientContext()
 
+    const { user } = useAuthContext()
+
     const handleClick = async () =>{
+        if (!user) {
+            return
+        }
         const response = await fetch('/api/client/' + client._id, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${user.token}` 
+            }
         })
         const json = await response.json()
 

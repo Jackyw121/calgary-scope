@@ -1,25 +1,32 @@
 import React from 'react';
 import { useEffect} from 'react'
 import { useClientContext } from '../Hooks/useClientContext';
+import { useAuthContext } from '../Hooks/useAuthContext';
 
 //components
 import ClientDetails from '../Components/ClientDetails'
  
 const Admin = () => {
     const {clients, dispatch} = useClientContext()
+    const {user} = useAuthContext()
 
     useEffect(() => {
         const fetchClients = async () => {
-            const response = await fetch('/api/client')
+            const response = await fetch('/api/client', {
+                headers: {
+                    'Authorization': `Bearer ${user.token}` 
+                }
+            })
             const json = await response.json()
 
             if (response.ok) {
                 dispatch({type: 'SET_CLIENTS', payload: json})
             }
         }
-
+        if (user) {
         fetchClients()
-    }, [dispatch])
+        }
+    }, [dispatch, user])
 
  return    (
  <div className="admin">

@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { useClientContext } from '../Hooks/useClientContext';
+import { useAuthContext } from '../Hooks/useAuthContext';
 
 const ClientLoginForm = () => {
     const {dispatch } = useClientContext()
+    const { user } = useAuthContext()
+
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
@@ -11,13 +14,19 @@ const ClientLoginForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        if (!user) {
+            setError('You must be logged in')
+            return
+        }
+
         const clients = {name, phone, email}
 
         const response = await fetch('/api/login', {
             method: 'POST',
             body: JSON.stringify(clients),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}` 
             }
         })
         const json = await response.json()
