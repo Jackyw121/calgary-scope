@@ -30,7 +30,7 @@ const Signup = () => {
             <TextField
               required
               id="outlined-required"
-              label="email"
+              label="Email"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
