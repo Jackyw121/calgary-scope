@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button';
 import ModalDialog from "./modalDialog";
 import {
   BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
-
+import { useLogout } from '../Hooks/useLogout';
 
 
 
@@ -24,6 +24,12 @@ const useStyles = makeStyles(theme => ({
 const Navbar = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+
+  const { logout } = useLogout()
+
+  const handleClick = () => {
+    logout()
+  }
 
   const handleOpen = () => {
     setOpen(true);
@@ -76,6 +82,9 @@ const Navbar = () => {
          <Link to="/create-account"> 
         <Button color="secondary">
           Sign up
+        </Button>
+        <Button onClick={handleClick} color="secondary">
+          Log out
         </Button>
         </Link>
         <Button color="secondary" onClick={handleOpen}>
