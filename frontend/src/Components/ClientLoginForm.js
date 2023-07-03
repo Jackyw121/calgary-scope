@@ -10,6 +10,7 @@ const ClientLoginForm = () => {
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
     const [error, setError] = useState('')
+    const [emptyFields, setEmptyFields] = useState([])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -21,24 +22,26 @@ const ClientLoginForm = () => {
 
         const clients = {name, phone, email}
 
-        const response = await fetch('/api/login', {
+        const response = await fetch('/api/client', {
             method: 'POST',
             body: JSON.stringify(clients),
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${user.token}` 
+                'Authorization': `Bearer ${user.token}`
             }
         })
         const json = await response.json()
 
         if (!response.ok) {
             setError(json.error)
+            setEmptyFields([])
         }
         if (response.ok) {
             setName('')
             setPhone('')
             setEmail('')
             setError(null)
+            setEmptyFields([])
             console.log('New Client Added', json)
             dispatch({type: 'CREATE_CLIENT', payload: json})
         }
@@ -54,6 +57,7 @@ const ClientLoginForm = () => {
                 type="text"
                 onChange={(e) => setName(e.target.value)}
                 value={name}
+                className={emptyFields.includes('name') ? 'error' : ''}
             />
 
             <label>Phone:</label>
@@ -61,6 +65,7 @@ const ClientLoginForm = () => {
                 type="text"
                 onChange={(e) => setPhone(e.target.value)}
                 value={phone}
+                className={emptyFields.includes('phone') ? 'error' : ''}
             />
 
             <label>Email:</label>
@@ -68,6 +73,7 @@ const ClientLoginForm = () => {
                 type="text"
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
+                className={emptyFields.includes('email') ? 'error' : ''}
             />
             
             <button>Add Client Info</button>

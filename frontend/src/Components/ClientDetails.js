@@ -6,7 +6,6 @@ import { format } from 'date-fns'
 
 const ClientDetails = ({ client }) => {
     const { dispatch } = useClientContext()
-
     const { user } = useAuthContext()
 
     const handleClick = async () =>{
