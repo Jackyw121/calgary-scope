@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Client Information Form</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      margin: 20px;
+      background-color: #FD5A37;
+    }
+
+    .background-image {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 70%;
+      height: 100vh;
+      background-image: url('gateway.jpeg');
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: cover;
+      z-index: -1;
+    }
+
+    .form-container {
+      width: 25%; /* Adjust the width as per your preference */
+      float: left;
+      background-color: #FD5A37; /* Form background color */
+      padding: 20px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    .vertical-bar {
+      position: fixed;
+      top: 0;
+      left: 30%;
+      width: 8px;
+      height: 100vh;
+      background-color: #000;
+      z-index: 999;
+    }
+
+    form fieldset {
+      border: none;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    form legend {
+      font-weight: bold;
+      color: #333;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    form input[type="text"],
+    form textarea {
+      width: 300px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    form textarea {
+      height: 100px;
+    }
+
+    form input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    form input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="vertical-bar"></div>
+  <div class="background-image"></div>
+  <h2>Client Information</h2>
+  <div class="form-container">
+    <div class="middle-bar"></div>
+    <form id="client-form">
+      <fieldset>
+        <legend>1. Individual Client Information:</legend>
+        <label for="child-name">Child's Name:</label>
+        <input type="text" id="child-name" name="child-name"><br><br>
+
+        <label for="dob">D.O.B:</label>
+        <input type="text" id="dob" name="dob"><br><br>
+
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age"><br><br>
+
+        <label for="gender">Gender:</label>
+        <input type="text" id="gender" name="gender"><br><br>
+
+        <label for="fscd">FSCD #:</label>
+        <input type="text" id="fscd" name="fscd"><br><br>
+
+        <label for="fscd-worker">FSCD Worker:</label>
+        <input type="text" id="fscd-worker" name="fscd-worker"><br><br>
+
+        <label for="phone">Phone # / Email:</label>
+        <input type="text" id="phone" name="phone"><br><br>
+
+        <label for="referral-source">Referral Source:</label>
+        <input type="text" id="referral-source" name="referral-source"><br><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Parent/Guardian(s):</legend>
+        <label for="parent-name">Parent/Guardian Name(s):</label>
+        <input type="text" id="parent-name" name="parent-name"><br><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address"><br><br>
+
+        <label for="postal-code">Postal Code:</label>
+        <input type="text" id="postal-code" name="postal-code"><br><br>
+
+        <label for="parent-phone">Phone #:</label>
+        <input type="text" id="parent-phone" name="parent-phone"><br><br>
+
+        <label for="alternate-phone">Alternate Phone #:</label>
+        <input type="text" id="alternate-phone" name="alternate-phone"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="text" id="parent-email" name="parent-email"><br><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. Diagnosis/Special Needs:</legend>
+        <label for="diagnosis-specialneeds">Diagnosis/Special Needs:</label>
+        <input type="text" id="diagnosis-specialneeds" name="diagnosis-specialneeds"><br><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. Service Requested/Barriers to Service:</legend>
+        <label for="service-requested-barrierstoservice">Service Requested/Barriers to Service:</label>
+        <input type="text" id="service-requested-barrierstoservice" name="service-requested-barrierstoservice"><br><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>Additional Comments:</legend>
+        <label for="additional-comments">Additional Comments:</label>
+        <input type="text" id="additional-comments" name="additional-comments"><br><br>
+      </fieldset>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <script>
+
+    fetch('Gatewaysintake.json')
+      .then(response => response.json())
+      .then(data => {
+     
+        document.getElementById('child-name').value = data.childName;
+        document.getElementById('dob').value = data.dob;
+        document.getElementById('age').value = data.age;
+        document.getElementById('gender').value = data.gender;
+        document.getElementById('fscd').value = data.fscd;
+        document.getElementById('fscd-worker').value = data.fscdWorker;
+        document.getElementById('phone').value = data.phone;
+        document.getElementById('referral-source').value = data.referralSource;
+        document.getElementById('parent-name').value = data.parentName;
+        document.getElementById('address').value = data.address;
+        document.getElementById('postal-code').value = data.postalCode;
+        document.getElementById('parent-phone').value = data.parentPhone;
+        document.getElementById('alternate-phone').value = data.alternatePhone;
+        document.getElementById('parent-email').value = data.parentEmail;
+        document.getElementById('diagnosis-specialneeds').value = data.diagnosisSpecialNeeds;
+        document.getElementById('service-requested-barrierstoservice').value = data.serviceRequestedBarriers;
+        document.getElementById('additional-comments').value = data.additionalComments;
+      })
+      .catch(error => {
+        console.error('Error fetching JSON:', error);
+      });
+
+    document.getElementById('client-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+   
+      var formData = new FormData(this);
+ 
+      var json = {};
+      formData.forEach(function(value, key) {
+        json[key] = value;
+      });
+   
+      console.log(json);
+      
+    });
+  </script>
+</body>
+</html>
