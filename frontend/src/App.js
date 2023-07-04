@@ -34,8 +34,8 @@ const {user} = useAuthContext()
             <Navbar/>
             <Routes>
                 <Route 
-                exact path="/" 
-                element={user ? < HomePage /> : <Navigate to ="/login"/>}>
+                path="/" 
+                element={< HomePage />}>
                 </Route>
                 <Route 
                 exact path="/about-us" 

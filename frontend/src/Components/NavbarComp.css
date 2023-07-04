@@ -1,0 +1,15 @@
+.navbar {
+  width: 70%;
+  height: 5rem;
+  margin: 5rem auto 2rem auto;
+}
+
+.nav_link {
+  color: #e7492e;
+  margin: 0 2rem;
+}
+
+.btn_sign_in {
+  background-color: #e7492e;
+  color: white;
+}
