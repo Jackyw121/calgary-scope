@@ -33,7 +33,7 @@ const {user} = useAuthContext()
             <Routes>
                 <Route 
                 path="/" 
-                element={user ? < HomePage /> : <Navigate to ="/login"/>}>
+                element={< HomePage />}>
                 </Route>
                 <Route 
                 path="/about-us" 

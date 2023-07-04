@@ -6,16 +6,11 @@ import Services from '../Components/Services';
 import Footer from '../Components/Footer';
 
 
-  const theme = createTheme({
-    status: {
-      danger: red[200],
-    },
-  });
+
  
 function HomePage (){
     return (
       <>
-      <NavbarComp />
       <Hero />
       <Services />
       <Footer />
