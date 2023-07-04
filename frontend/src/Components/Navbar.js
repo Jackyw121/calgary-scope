@@ -87,9 +87,11 @@ const Navbar = () => {
         )}
         {!user && (
         <div>
+        <Link to="/login">
         <Button color="secondary" onClick={handleOpen}>
           Log in
         </Button>
+        </Link>
         <Link to="/signup"> 
         <Button color="secondary">
         Sign up
@@ -98,7 +100,6 @@ const Navbar = () => {
         </div>
       )}
       </Toolbar>
-      <ModalDialog open={open} handleClose={handleClose} />
     </AppBar>
   );
 };

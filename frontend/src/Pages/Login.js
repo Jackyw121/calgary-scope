@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   }));
 
 
-const Login = ({ handleClose }) => {
+const Login = () => {
     const classes = useStyles();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -38,9 +38,11 @@ const Login = ({ handleClose }) => {
 
         await login(email, password)
     }
+    
 
     return(
         <form className={classes.root} onSubmit={handleSubmit}>
+        <Typography variant="h3"> Log in </Typography>
         <TextField
             label="Email"
             variant="filled"
@@ -58,9 +60,6 @@ const Login = ({ handleClose }) => {
             onChange={e => setPassword(e.target.value)}
         />
         <Box onSubmit={handleSubmit}>
-        <Button variant="contained" onClick={handleClose}>
-          Cancel
-        </Button>
         <Button type='Submit' variant="contained" disabled={isLoading}>
                 Log in
         </Button>
