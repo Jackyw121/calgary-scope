@@ -31,6 +31,7 @@ const Signup = () => {
               required
               id="outlined-required"
               label="Email"
+              type="email"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
@@ -38,6 +39,7 @@ const Signup = () => {
               required
               id="outlined-required"
               label="Password"
+              type="password"
               onChange={(e) => setPassword(e.target.value)}
               value={password}
             />
