@@ -10,6 +10,7 @@ import {
   BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import { useLogout } from '../Hooks/useLogout';
 import { useAuthContext } from '../Hooks/useAuthContext';
+import LanguageSelect from './LanguageSelect';
 
 
 
@@ -100,7 +101,10 @@ const Navbar = () => {
         </Button>
         </Link>
         </div>
-      )}
+        )}
+        <div>
+          <LanguageSelect/>
+        </div>
       </Toolbar>
     </AppBar>
   );

@@ -30,6 +30,7 @@ const App = () => {
 const {user} = useAuthContext()
     return (
         <div>
+        
         <BrowserRouter>
             <Navbar/>
             <Routes>

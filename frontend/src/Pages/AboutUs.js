@@ -1,16 +1,34 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import './AboutUs.css';
+
 function AboutUs (){
+  const { t } = useTranslation();
+
+  const languages = [
+    { value: '', text: "Languages" },
+    { value: 'en', text: "English" },
+    { value: 'fr', text: "French"}
+]
+
+const [lang, setLang] = useState('');
+ 
+// This function put query that helps to
+// change the language
+const handleChange = e => {
+    setLang(e.target.value);
+    let loc = "http://localhost:3000/";
+    window.location.replace(loc + "?lng=" + e.target.value);
+}
+
  return <address>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 <h1>About Us</h1>
 
-
 <div class="color-container1">
 <h2 class="space">Our Story</h2>
   <p></p>
-  <p class="container-text1">SCOPE has supported individuals with developmental disabilities for over 30 years. Our core departments support children, youth, and families (Outreach), adults with mental health diagnoses (Community Support Team), and Seniors (Journeys). The Community Development department facilitates advocacy efforts (Disability Action Hall) and hosts the Picture This Film Festival.   
+  <p class="container-text1">{t('about_us1')}
   </p>
   <p class="container-text1">                                                                                                                                                                                 
   Individuals served by SCOPE enjoy a flexible program and service that is customized according to their own preferences and needs. One size does not fit all, and every individual is entitled to pursue their dreams and goals on their terms. Person-centred planning is the cornerstone of SCOPE’s values and services.
