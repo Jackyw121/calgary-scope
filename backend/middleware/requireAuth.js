@@ -25,4 +25,18 @@ const requireAuth = async (req, res, next) => {
 
 }
 
-module.exports = requireAuth
+const isAdmin = async (req, res, next) => {
+    requireAuth(res, req, () => {
+        if
+        (req.user.isAdmin){
+            next()
+        }
+        else 
+        {
+        console.log(error)
+        res.status(401).json({error: 'You do not have the required privileges'})
+        }
+    })
+}
+
+module.exports = requireAuth, isAdmin

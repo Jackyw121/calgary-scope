@@ -77,7 +77,9 @@ const Navbar = () => {
           </Box>
         {user && (
           <div>
+          <Link to='/profile'>
           <Button color='secondary'>{user.email}</Button>
+          </Link>
           <Link href='/'>
         <Button onClick={handleClick} color="secondary">
           Log out

@@ -4,8 +4,10 @@ const {
 } = require('../controllers/clientController')
 
 const requireAuth = require('../middleware/requireAuth')
+const isAdmin = require('../middleware/requireAuth')
 
 const Client = require('../models/clientModel')
+
 
 const router = express.Router()
 

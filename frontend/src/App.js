@@ -20,6 +20,8 @@ import Services from "./Pages/Services";
 import Admin from "./Pages/Admin";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
+import Profile from "./Pages/Profile";
+import GatewayIntake from "./Pages/Gatewayintake"
 import { useAuthContext } from "./Hooks/useAuthContext";
 
 
@@ -32,28 +34,36 @@ const {user} = useAuthContext()
             <Navbar/>
             <Routes>
                 <Route 
-                path="/" 
+                exact path="/" 
                 element={user ? < HomePage /> : <Navigate to ="/login"/>}>
                 </Route>
                 <Route 
-                path="/about-us" 
+                exact path="/about-us" 
                 element={< AboutUs />}>
                 </Route>
                 <Route 
-                path="/services" 
+                exact path="/services" 
                 element={< Services />}>
                 </Route>
                 <Route 
-                path="/admin" 
+                exact path="/admin" 
                 element={user ? <Admin/> : <Navigate to ="/"/>}>
                 </Route>
                 <Route 
-                path="/login"
+                exact path="/profile" 
+                element={user ? <Profile/> : <Navigate to ="/"/>}>
+                </Route>
+                <Route 
+                exact path="/login"
                 element={!user ? < Login/> : <Navigate to ="/"/>}>
                 </Route>
                 <Route 
-                path="/signup" 
+                exact path="/signup" 
                 element={!user ? < Signup/> : <Navigate to ="/"/>}>
+                </Route>
+                <Route 
+                exact path="/gatewayintakeform" 
+                element={< GatewayIntake />}>
                 </Route>
             </Routes>
         </BrowserRouter>
