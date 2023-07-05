@@ -11,7 +11,7 @@ import {
 import { useLogout } from '../Hooks/useLogout';
 import { useAuthContext } from '../Hooks/useAuthContext';
 import LanguageSelect from './LanguageSelect';
-
+import { useTranslation } from 'react-i18next';
 
 
 const useStyles = makeStyles(theme => ({
@@ -22,6 +22,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
 }));
+
 
 const Navbar = () => {
   const classes = useStyles()
@@ -44,6 +45,9 @@ const Navbar = () => {
     setOpen(false);
   };
 
+  const { t } = useTranslation();
+
+
   return (
     <AppBar position="sticky" color="inherit">
       <Toolbar>
@@ -55,17 +59,17 @@ const Navbar = () => {
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
              <Link to="/">
               <Button color='secondary'>
-              Home
+              {t('home')}
               </Button>
               </Link>
               <Link to="/services">
               <Button color='secondary'>
-              Services
+              {t('services_title')}
               </Button>
               </Link>
               <Link to="/about-us">
               <Button color='secondary'>
-              About us
+              {t('about_us_title')}
               </Button>
               </Link>
               {user && (
