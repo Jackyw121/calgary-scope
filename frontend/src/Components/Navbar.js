@@ -102,9 +102,7 @@ const Navbar = () => {
         </Link>
         </div>
         )}
-        <div>
-          <LanguageSelect/>
-        </div>
+        <LanguageSelect/>
       </Toolbar>
     </AppBar>
   );

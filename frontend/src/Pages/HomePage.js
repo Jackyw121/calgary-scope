@@ -1,6 +1,5 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import NavbarComp from '../Components/NavbarComp';
 import Hero from '../Components/Hero';
 import Services from '../Components/Services';
 import Footer from '../Components/Footer';

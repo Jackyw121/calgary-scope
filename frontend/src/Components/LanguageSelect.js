@@ -22,17 +22,23 @@ function LanguageSelect() {
         window.location.replace(loc + "?lng=" + e.target.value);
     }
   return (
-    <Box sx={{ minWidth: 180}} px={2}>
-    <FormControl fullWidth>
-    <InputLabel sx={{input: {textAlign: 'Center'}}}>Language</InputLabel>
-    <Select color='danger' variant='outlined' value={lang} label={lang} onChange={handleChange} >
+    <Box sx={{ minWidth: 120 }}>
+      <FormControl fullWidth>
+        <InputLabel id="simple-select-label">Language</InputLabel>
+        <Select color ='secondary'
+          labelId="simple-select-label"
+          id="simple-select"
+          value={lang}
+          label="Language"
+          onChange={handleChange}
+        >
     {languages.map(item => {
         return (<option key={item.value}
             value={item.value}>{item.text}</option>);
     })}
-</Select>
-</FormControl>
-</Box>
+        </Select>
+      </FormControl>
+    </Box>
   )
 }
 
