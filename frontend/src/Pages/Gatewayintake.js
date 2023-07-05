@@ -1,8 +1,8 @@
+import ClientLoginForm from "../Components/ClientLoginForm"
+
 const GatewayIntake = () => {
     return (
-        <form>
-            Hello
-        </form>
+        <ClientLoginForm/>
     )
 }
 

@@ -36,7 +36,6 @@ const Admin = () => {
             <ClientDetails key = {client._id} client={client}/>
         ))}
     </div>
-    <ClientLoginForm/>
  </div>
 )
 }
