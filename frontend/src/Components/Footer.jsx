@@ -3,17 +3,20 @@ import { Row, Col, Container} from 'react-bootstrap';
 import facebook_logo from './Assets/facebook.svg';
 import maps_logo from './Assets/maps.svg';
 import linkedin_logo from './Assets/linkedin.svg';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="text-white text-center text-lg-start" style={{backgroundColor: '#e7492e'}}>
         <div className="container p-4">
           <div className="row mt-4">
             <div className="col-lg-4 col-md-12 mb-4 mb-md-0">
-              <h5 className="text-uppercase mb-4">Help Us</h5>
+              <h5 className="text-uppercase mb-4">{t('help')}</h5>
 
               <p>
-                Calgary SCOPE Society is a registered non-profit agency. We are pleased to provide a tax-deductible receipt for donations of $20.00 or more.
+                {t('footer')}
               </p>
               <div className="mt-4">
                 <a type="button" className="btn btn-floating btn-sm">
