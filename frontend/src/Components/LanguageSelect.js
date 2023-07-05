@@ -8,7 +8,10 @@ function LanguageSelect() {
 
     const languages = [
         { value: 'en', text: "English" },
-        { value: 'fr', text: "French"}
+        { value: 'fr', text: "French"},
+        { value: 'tl', text: "Tagalog"},
+        { value: 'pa', text: "Punjabi"},
+        { value: 'zh', text: "Chinese"}
     ]
 
     
