@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@mui/material/TextField';
 import { useClientContext } from '../Hooks/useClientContext';
 import { useSignup } from "../Hooks/useSignup";
+import { Typography } from "@mui/material";
 
 const Signup = () => {
     const [email, setEmail] = useState('')
@@ -24,9 +25,8 @@ const Signup = () => {
           noValidate
           autoComplete="off"
         >
-    
-            <form className='create' onSubmit={handleSubmit}>
-            <h3><u>Create an account</u></h3>
+            <h3 style={{marginTop: 50, textAlign: 'center'} }><u>Create an Account</u></h3>
+            <form style={{marginTop: 20}}className='create' onSubmit={handleSubmit}>
             <TextField
               required
               id="outlined-required"
