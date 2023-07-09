@@ -1,81 +1,136 @@
-import { useState } from "react"
-import { useLogin } from '../Hooks/useLogin'
+import { useState } from "react";
+
+import { useLogin } from "../Hooks/useLogin";
 import React from "react";
-import { makeStyles } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Link from '@mui/material/Link';
-import { Box } from "@mui/material";
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import Link from "@mui/material/Link";
 
-const useStyles = makeStyles(theme => ({
-    root: {
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: theme.spacing(2),
-  
-      '& .MuiTextField-root': {
-        margin: theme.spacing(1),
-        width: '300px',
-      },
-      '& .MuiButtonBase-root': {
-        margin: theme.spacing(2),
-      },
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: theme.spacing(2),
+    backgroundColor: theme.palette.background.default,
+    borderRadius: theme.spacing(1),
+    boxShadow: theme.shadows[3],
+    maxWidth: "400px",
+    marginTop: "2cm",
+    marginLeft: "auto",
+    marginRight: "auto", 
+  },
+
+  title: {
+    marginBottom: theme.spacing(2),
+    color: theme.palette.secondary.main,
+    fontWeight: 700,
+    textTransform: "uppercase",
+    letterSpacing: "2px",
+    textAlign: "center",
+    fontFamily: "futura, sans-serif",
+  },
+  form: {
+    width: "100%",
+  },
+  textField: {
+    width: "100%",
+    marginBottom: theme.spacing(2),
+  },
+  button: {
+    width: "100%",
+    marginBottom: theme.spacing(2),
+    fontWeight: 700,
+    letterSpacing: "1px",
+  },
+  error: {
+    color: "red",
+    marginTop: theme.spacing(2),
+    textAlign: "center",
+    fontWeight: 700,
+  },
+  linkContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  link: {
+    marginTop: theme.spacing(1),
+    textDecoration: "none",
+    color: theme.palette.secondary.main,
+    fontWeight: 700,
+    letterSpacing: "1px",
+    "&:hover": {
+      textDecoration: "underline",
     },
-  }));
-
+  },
+}));
 
 const Login = () => {
-    const classes = useStyles();
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const {login, error, isLoading} = useLogin()
+  const classes = useStyles();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { login, error, isLoading } = useLogin();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        await login(email, password)
-    }
+    await login(email, password);
+  };
+
+  return (
+
     
-
-    return(
-        <form className={classes.root} onSubmit={handleSubmit}>
-        <Typography variant="h3"> Log in </Typography>
+    <form className={classes.root} onSubmit={handleSubmit}>
+      <Typography variant="h4" className={classes.title}>
+        Log in
+      </Typography>
+      <div className={classes.form}>
         <TextField
-            label="Email"
-            variant="filled"
-            type="email"
-            required
-            value={email}
-            onChange={e => setEmail(e.target.value)}
+          label="Email"
+          variant="outlined"
+          type="email"
+          required
+          className={classes.textField}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <TextField
-            label="Password"
-            variant="filled"
-            type="password"
-            required
-            value={password}
-            onChange={e => setPassword(e.target.value)}
+          label="Password"
+          variant="outlined"
+          type="password"
+          required
+          className={classes.textField}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
-        <Box onSubmit={handleSubmit}>
-        <Button type='Submit' variant="contained" disabled={isLoading}>
-                Log in
+        
+        <Button
+          type="submit"
+          variant="contained"
+          color="secondary"
+          disabled={isLoading}
+          className={classes.button}
+        >
+          Log in
         </Button>
-            {error && <div className="error">{error}</div>}
-        </Box>
-        <div>
-        <Link href='/signup'>Create an Account</Link>
+        {error && <div className={classes.error}>{error}</div>}
+        <div className={classes.linkContainer}>
+          <Link href="/signup" className={classes.link}>
+            Create an Account
+          </Link>
+          <Link href="/forgot-password" className={classes.link}>
+            Forgot Password?
+          </Link>
+          <Link href="/employee-login" className={classes.link}>
+            Are you an Employee?
+          </Link>
         </div>
-        <div>
-        <Link href='/forgot-password'>Forgot Password?</Link>
-        </div>
-        <div>
-        <Link href='/employee-login'>Are you an Employee?</Link>
-        </div>
-        </form>
-    )
-}
+      </div>
+    </form>
+  );
+};
 
-export default Login
+export default Login;
