@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Forms = () => {
+const RabboniForm = () => {
   return (
 
       <div className="container bg-light p-5  rounded-5">
@@ -372,4 +372,4 @@ const Forms = () => {
   )
 }
 
-export default Forms
+export default RabboniForm

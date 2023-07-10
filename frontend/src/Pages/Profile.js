@@ -13,8 +13,8 @@ import { Link } from 'react-router-dom';
 function Profile (){
     return (
         <ThemeProvider theme={theme}>
-            <Link to ='/gatewayintakeform'>
-            <Button variant='contained'>Gateway Intake Form</Button>
+            <Link to ='/rabboniform'>
+            <Button variant='contained'>Rabboni Form</Button>
             </Link>
       </ThemeProvider>
     )

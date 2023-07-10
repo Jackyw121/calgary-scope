@@ -21,7 +21,7 @@ import Admin from "./Pages/Admin";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import Profile from "./Pages/Profile";
-import GatewayIntake from "./Pages/Gatewayintake"
+import RabboniFormProfile from "./Pages/RaboboniFormProfile";
 import { useAuthContext } from "./Hooks/useAuthContext";
 
 
@@ -63,8 +63,8 @@ const {user} = useAuthContext()
                 element={!user ? < Signup/> : <Navigate to ="/"/>}>
                 </Route>
                 <Route 
-                exact path="/gatewayintakeform" 
-                element={< GatewayIntake />}>
+                exact path="/rabboniform" 
+                element={< RabboniFormProfile />}>
                 </Route>
             </Routes>
         </BrowserRouter>
