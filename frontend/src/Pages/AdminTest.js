@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import UserDetails from '../Components/UserDetails';
 
 const AdminTest = () => {
 
@@ -21,7 +22,7 @@ const AdminTest = () => {
         <div>
             <div className='userProfile'>
                 {users && users.map((userProfile) => (
-                    <p key={userProfile._id}>{userProfile.firstName}</p>
+                    <UserDetails key={userProfile._id} userProfile={userProfile}/>
                 ))}
             </div>
         </div>
