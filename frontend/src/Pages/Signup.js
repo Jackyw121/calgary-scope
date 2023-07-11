@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLogin } from "../Hooks/useLogin";
+import { useSignup } from "../Hooks/useSignup"
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -63,19 +63,27 @@ const useStyles = makeStyles((theme) => ({
 
 const Signup = () => {
   const classes = useStyles();
+  const {signup, error, isLoading} = useSignup();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const {isLoading } = useLogin();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  
+  //const [confirmPassword, setConfirmPassword] = useState("");
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(email, password);
+    await signup(email, password, firstName, lastName)
+
+    console.log(email, firstName, lastName, password);
   };
 
+
+
   return (
-    <form className={classes.root} onSubmit={handleSubmit}>
+    <form noValidate autoComplete="off" className={classes.root} onSubmit={handleSubmit}>
       <Typography variant="h4" className={classes.title}>
         Create an account
       </Typography>
@@ -86,8 +94,26 @@ const Signup = () => {
           type="email"
           required
           className={classes.textField}
-          value={email}
           onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
+        <TextField
+          label="First Name"
+          variant="outlined"
+          type="text"
+          required
+          className={classes.textField}
+          onChange={(e) => setFirstName(e.target.value)}
+          value={firstName}
+        />
+        <TextField
+          label="Last Name"
+          variant="outlined"
+          type="text"
+          required
+          className={classes.textField}
+          onChange={(e) => setLastName(e.target.value)}
+          value={lastName}
         />
         <TextField
           label="Password"
@@ -95,18 +121,10 @@ const Signup = () => {
           type="password"
           required
           className={classes.textField}
-          value={password}
           onChange={(e) => setPassword(e.target.value)}
+          value={password}
         />
-        <TextField
-          label="Confirm Password"
-          variant="outlined"
-          type="password"
-          required
-          className={classes.textField}
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
+
         <Button
           type="submit"
           variant="contained"
@@ -116,8 +134,10 @@ const Signup = () => {
         >
           Sign up
         </Button>
+        {error && <div className="error">{error}</div>}
        
       </div>
+      
     </form>
   );
 };
