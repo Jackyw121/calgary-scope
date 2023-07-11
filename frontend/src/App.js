@@ -16,7 +16,6 @@ import Navbar from "./Components/Navbar";
 //import home
 import HomePage from "./Pages/HomePage";
 import AboutUs from "./Pages/AboutUs"
-import Services from "./Pages/Services";
 import Admin from "./Pages/Admin";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
@@ -41,10 +40,6 @@ const {user} = useAuthContext()
                 <Route 
                 exact path="/about-us" 
                 element={< AboutUs />}>
-                </Route>
-                <Route 
-                exact path="/services" 
-                element={< Services />}>
                 </Route>
                 <Route 
                 exact path="/admin" 

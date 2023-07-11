@@ -6,6 +6,7 @@ import { useAuthContext } from '../Hooks/useAuthContext';
 //components
 import ClientDetails from '../Components/ClientDetails'
 import ClientLoginForm from '../Components/ClientLoginForm';
+import AdminTest from './AdminTest';
  
 const Admin = () => {
     const {clients, dispatch} = useClientContext()

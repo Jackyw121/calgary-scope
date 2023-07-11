@@ -3,6 +3,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { red,  } from '@mui/material/colors';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
+import AdminTest from './AdminTest';
 
   const theme = createTheme({
     status: {
@@ -16,6 +17,7 @@ function Profile (){
             <Link to ='/rabboniform'>
             <Button variant='contained'>Rabboni Form</Button>
             </Link>
+            <AdminTest/>
       </ThemeProvider>
     )
 }

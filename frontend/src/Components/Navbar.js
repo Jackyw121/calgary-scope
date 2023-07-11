@@ -62,11 +62,6 @@ const Navbar = () => {
               {t('home')}
               </Button>
               </Link>
-              <Link to="/services">
-              <Button color='secondary'>
-              {t('services_title')}
-              </Button>
-              </Link>
               <Link to="/about-us">
               <Button color='secondary'>
               {t('about_us_title')}

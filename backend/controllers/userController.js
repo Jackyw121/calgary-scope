@@ -1,9 +1,54 @@
 const User = require('../models/userModel')
 const jwt = require('jsonwebtoken')
+const { default: mongoose } = require('mongoose')
 
 const createToken = (_id) => {
     return jwt.sign({_id}, process.env.SECRET, { expiresIn: '1h' })
 }
+//get all userProfiles
+const getUserProfiles = async (req, res) => {
+    const userProfile = await User.find({}).sort({createdAt: -1})
+
+    res.status(200).json(userProfile)
+}
+
+
+//get single userProfiles
+const getUserProfile = async ( req, res ) => {
+    console.log(req.params)
+    const { id } = req.params
+
+    const userProfile = await User.findById(id)
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: 'No such user'})
+    }
+
+    if (!userProfile) {
+        return res.status(404).json({error: 'No such user'})
+    }
+
+    res.status(200).json(userProfile)
+}
+
+// delete user
+const deleteUser = async (req, res) => {
+    //delete user from db
+    const { id } = req.params
+    
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: 'No such user'})
+    }
+
+    const userProfile = await User.findOneAndDelete({_id: id})
+
+    if (!UserDetails) {
+        return res.status(404).json({error: 'No such user'})
+    }
+
+    res.status(200).json(userProfile)
+}
+
 
 //login user
 const loginUser = async (req, res) => {
@@ -40,4 +85,4 @@ const signupUser = async (req, res) => {
     }
 }
 
-module.exports = { signupUser, loginUser }
+module.exports = { signupUser, loginUser, getUserProfiles, getUserProfile, deleteUser }
