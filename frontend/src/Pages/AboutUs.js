@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './AboutUs.css';
+import Footer from '../Components/Footer';
 
 function AboutUs (){
   const { t } = useTranslation();
@@ -41,7 +41,7 @@ function AboutUs (){
     <p class="container-text3">{t('principle5')}</p>
   </ul>
   </div>
-  
+  <Footer />
         </address>
 }
 
