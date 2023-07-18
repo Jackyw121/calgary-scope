@@ -4,6 +4,9 @@ import { red,  } from '@mui/material/colors';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import AdminTest from './AdminTest';
+import RabboniForm from './RaboboniFormProfile'
+import { useState } from 'react';
+import FormContainer from '../Components/FormContainer';
 
   const theme = createTheme({
     status: {
@@ -12,6 +15,22 @@ import AdminTest from './AdminTest';
   });
  
 function Profile (){
+
+  const [forms, setForms] = useState([]);
+
+
+
+
+  function addForm(newForm) {
+
+    setForms(prevForms => {
+
+      return [...prevForms, newForm];
+
+    });
+
+  }
+
     return (
         <ThemeProvider theme={theme}>
             <Link to ='/rabboniform'>
