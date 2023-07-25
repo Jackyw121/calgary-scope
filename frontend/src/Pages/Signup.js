@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { useSignup } from "../Hooks/useSignup"
+import { useSignup } from "../Hooks/useSignup";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     letterSpacing: "1px",
   },
- 
   linkContainer: {
     display: "flex",
     flexDirection: "column",
@@ -63,27 +61,52 @@ const useStyles = makeStyles((theme) => ({
 
 const Signup = () => {
   const classes = useStyles();
-  const {signup, error, isLoading} = useSignup();
+  const { signup, error, isLoading } = useSignup();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  
-  //const [confirmPassword, setConfirmPassword] = useState("");
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await signup(email, password, firstName, lastName)
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+    
+    if (!email) {
+      alert("Email field is empty");
+      return;
+    }
+    
+    if (!firstName) {
+      alert("First name field is empty");
+      return;
+    }
+
+    if (!lastName) {
+      alert("Last name field is empty");
+      return;
+    }
+    if (!password) {
+      alert("Password field is empty");
+      return;
+    }
+
+    await signup(email, password, firstName, lastName);
 
     console.log(email, firstName, lastName, password);
   };
 
-
-
   return (
-    <form noValidate autoComplete="off" className={classes.root} onSubmit={handleSubmit}>
+    <form
+      noValidate
+      autoComplete="off"
+      className={classes.root}
+      onSubmit={handleSubmit}
+    >
       <Typography variant="h4" className={classes.title}>
         Create an account
       </Typography>
@@ -124,7 +147,15 @@ const Signup = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-
+        <TextField
+          label="Confirm Password"
+          variant="outlined"
+          type="password"
+          required
+          className={classes.textField}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          value={confirmPassword}
+        />
         <Button
           type="submit"
           variant="contained"
@@ -135,9 +166,7 @@ const Signup = () => {
           Sign up
         </Button>
         {error && <div className="error">{error}</div>}
-       
       </div>
-      
     </form>
   );
 };
