@@ -1,10 +1,4 @@
-import format from "date-fns/format"
-import { useAuthContext } from '../Context/AuthContext'
-
-
-
 const UserDetails = ({users}) => {
-
 
     return (
         <div className="client-details">
@@ -14,8 +8,7 @@ const UserDetails = ({users}) => {
         <p><strong>Phone: </strong>{users.phone}</p>
         <p><strong>Account created: </strong>{format(new Date(users.createdAt), 'yyyy-MM-dd')}</p>
         <p><strong>Client Forms:</strong><button>View forms</button></p>
+        <span className="material-symbols-outlined" onClick={handleClick}>Delete</span>
     </div>
     )
 }
-
-export default UserDetails
