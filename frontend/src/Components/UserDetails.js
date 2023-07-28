@@ -1,9 +1,9 @@
 import format from "date-fns/format"
 import { useAuthContext } from "../Hooks/useAuthContext"
-import { useUserProfileContext } from "../Hooks/useUserProfileContext"
+import { UserProfileContext } from "../Hooks/useUserProfileContext"
 
 const UserDetails = ({ userProfile }) => {
-    const { dispatch } = useUserProfileContext()
+    const { dispatch } = UserProfileContext()
     const { user } = useAuthContext()
 
     const handleClick = async () => {

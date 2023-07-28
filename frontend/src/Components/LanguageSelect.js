@@ -21,7 +21,10 @@ function LanguageSelect() {
     // change the language
     const handleChange = e => {
         setLang(e.target.value);
-        let loc = "http://localhost:3000/";
+        //test build
+        // let loc = "http://localhost:3000/";
+        //production build
+        let loc = "https://calgaryscope.netlify.app/";
         window.location.replace(loc + "?lng=" + e.target.value);
     }
   return (

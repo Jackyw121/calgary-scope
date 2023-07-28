@@ -1,12 +1,36 @@
-import { UserProfileContext } from "../Context/UserProfileContext";
-import { useContext } from "react";
+import { createContext, useReducer } from "react";
 
-export const useUserProfileContext = () => {
-    const context = useContext( UserProfileContext )
+export const UserProfileContext = createContext()
 
-    if (!context) {
-        throw Error('useUserProfileContext must be used inside an UserProfileProvider')
+export const userProfileReducer = (state, action) => {
+    switch (action.type) {
+        case 'SET_USERPROFILE' :
+            return {
+                userProfiles: action.payload
+            }
+        case 'CREATE_USERPROFILE':
+            return {
+                userProfiles: [action.payload, ...state.userProfiles]
+            }
+        case 'DELETE_USERPROFILE':
+            return {
+                userProfiles: state.userProfiles.filter((u) => u._id !== action.payload._id)
+            } 
+        default:
+            return state
     }
+}
 
-    return context
+export const UserProfileContextProvider = ({ children }) => {
+    const [state, dispatch] = useReducer(userProfileReducer, {
+        userProfiles: null
+    })
+
+
+return (
+    <UserProfileContext.Provider value={{...state, dispatch}}>
+        { children }
+    </UserProfileContext.Provider>
+)
+
 }

@@ -36,7 +36,6 @@ function Profile (){
             <Link to ='/rabboniform'>
             <Button variant='contained'>Rabboni Form</Button>
             </Link>
-            <AdminTest/>
             <RabboniForm onAdd={addForm} />
             {forms.map((formItem) => {
               return <FormContainer
