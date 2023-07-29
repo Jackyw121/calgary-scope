@@ -6,8 +6,7 @@ const clientRoutes = require('./routes/client')
 const userRoutes = require('./routes/userLogin')
 const cors = require("cors");
 
-//cors
-app.use(cors);
+
 
 
 //express app
@@ -41,6 +40,8 @@ app.listen(process.env.PORT, () => {
 //routes
 app.use('/api/client', clientRoutes)
 app.use('/api/user', userRoutes)
+//cors
+app.use(cors);
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
