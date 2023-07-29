@@ -1,5 +1,3 @@
-// userprofilepage.js
-
 document.addEventListener("DOMContentLoaded", function() {
     fetchUserData();
     initializeEditButton();
@@ -17,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
         email: "johndoe@example.com",
         location: "New York, USA",
         joinedDate: "July 1, 2023",
-        aboutText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur justo sit amet elit tincidunt interdum. Cras sit amet ultricies nunc."
+        aboutText: "Tell us a little about yourself!."
       };
   
       // Update the user profile with the retrieved data
