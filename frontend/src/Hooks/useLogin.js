@@ -13,6 +13,8 @@ export const useLogin = () => {
         const response = await fetch('https://calgary-scope.onrender.com/api/user/login', {
             method: 'POST',
             headers: {'Content-type': 'application/json'},
+            "Access-Control-Allow-Origin": "*",
+           "Access-Control-Allow-Methods": "GET, POST, OPTION",
             body: JSON.stringify({email, password})
         })
         const json = await response.json()
