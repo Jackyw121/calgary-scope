@@ -21,10 +21,7 @@ app.use((req, res, next) =>{
 })
 
 //cors middleware
-app.use(cors({
-    origin: 'https://calgary-scope.onrender.com'
-}));
-
+app.use(cors())
 
 app.get('/', (req, res) => {
     res.json({msg: 'Welcome to the app'})
