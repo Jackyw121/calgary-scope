@@ -20,6 +20,11 @@ app.use((req, res, next) =>{
     next()
 })
 
+//cors middleware
+app.use(cors({
+    origin: 'https://calgary-scope.onrender.com'
+}));
+
 
 app.get('/', (req, res) => {
     res.json({msg: 'Welcome to the app'})
@@ -41,15 +46,3 @@ app.listen(process.env.PORT, () => {
 app.use('/api/client', clientRoutes)
 app.use('/api/user', userRoutes)
 
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader(
-      "Access-Control-Allow-Methods",
-      "OPTIONS", "GET", "POST", "PUT", "PATCH", "DELETE"
-    );
-    res.setHeader("Access-Control-Allow-Headers","Origin", "Content-Type", "Authorization");
-    if (req.method === "OPTIONS") {
-      return res.sendStatus(200);
-    }
-    next();
-  });
