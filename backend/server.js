@@ -40,6 +40,16 @@ app.listen(process.env.PORT, () => {
 //routes
 app.use('/api/client', clientRoutes)
 app.use('/api/user', userRoutes)
-//cors
-app.use(cors);
 
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "OPTIONS", "GET", "POST", "PUT", "PATCH", "DELETE"
+    );
+    res.setHeader("Access-Control-Allow-Headers","Origin", "Content-Type", "Authorization");
+    if (req.method === "OPTIONS") {
+      return res.sendStatus(200);
+    }
+    next();
+  });
