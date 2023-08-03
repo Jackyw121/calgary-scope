@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 
-function RabboniForm(props) {
+function RabboniForm() {
   const [form, setForm] = useState({
     pFirstName: "",
     pLastName: "",
@@ -63,6 +63,7 @@ function RabboniForm(props) {
   }
 
   function submitForm(event) {
+    event.preventDefault()
     const newForm = {
       pFirstName: form.pFirstName,
       pLastName: form.pLastName,
@@ -110,8 +111,10 @@ function RabboniForm(props) {
       prescribedFor3: form.prescribedFor3,
       signature: form.signature,
     };
+    axios.post("/api/form/create", {newForm})
+    .then(response => console.log("Hello bb"))
+    .catch(err => console.log(err))
 
-    axios.post("https://calgary-scope.onrender.com/create", newForm);
   }
 
   return (

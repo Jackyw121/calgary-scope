@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const clientRoutes = require("./routes/client");
 const userRoutes = require("./routes/userLogin");
+const formRoutes = require("./routes/formRoute")
 const cors = require("cors");
 
 //express app
@@ -20,7 +21,6 @@ app.use((req, res, next) => {
 //cors middleware
 app.use(cors());
 
-app.use("/", require("./formRoute"));
 
 app.get("/", (req, res) => {
   res.json({ msg: "Welcome to the app" });
@@ -42,3 +42,4 @@ mongoose
 //routes
 app.use("/api/client", clientRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/form", formRoutes);

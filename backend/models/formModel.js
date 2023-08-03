@@ -1,52 +1,140 @@
 const mongoose = require("mongoose");
 
-const formsSchema = {
-  pFirstName: String,
-  pLastName: String,
-  homeNumber: String,
-  cellPhoneNumber: String,
-  email: String,
-  streetAddress: String,
-  city: String,
-  province: String,
-  postalCode: String,
-  childFirstName: String,
-  childLastName: String,
-  childID: String,
-  gender: String,
-  birthDate: String,
-  livesAtHome: String,
-  typeOfService: String,
-  albertaHealthCardNumber: String,
-  diagnoses: String,
-  eating: String,
-  dressing: String,
-  toileting: String,
-  activities: String,
-  speechAndHearing: String,
-  vision: String,
-  mobility: String,
-  specialInstructions: String,
-  primaryDoctor: String,
-  clinic: String,
-  clinicAddress: String,
-  clinicPhone: String,
-  emergencyTransport: String,
-  emergencyOption: String,
-  medications: String,
-  dosage: String,
-  numOfTimes: String,
-  prescribedFor: String,
-  medications2: String,
-  dosage2: String,
-  numOfTimes2: String,
-  prescribedFor2: String,
-  medications3: String,
-  dosage3: String,
-  numOfTimes3: String,
-  prescribedFor3: String,
-};
+const Schema = mongoose.Schema
 
-const Form = mongoose.model("Form", formsSchema);
+const formsSchema = new Schema({
+  pFirstName: {
+    type: String,
+},
+  pLastName:  {
+    type: String,
+},
+  homeNumber:  {
+    type: String,
+},
+  cellPhoneNumber:  {
+    type: String,
+},
+  email:  {
+    type: String,
+},
+  streetAddress:  {
+    type: String,
+},
+  city:  {
+    type: String,
+},
+  province:  {
+    type: String,
+},
+  postalCode:  {
+    type: String,
+},
+  childFirstName:  {
+    type: String,
+},
+  childLastName:  {
+    type: String,
+},
+  childID:  {
+    type: String,
+},
+  gender:  {
+    type: String,
+},
+  birthDate:  {
+    type: String,
+},
+  livesAtHome:  {
+    type: String,
+},
+  typeOfService:  {
+    type: String,
+},
+  albertaHealthCardNumber:  {
+    type: String,
+},
+  diagnoses:  {
+    type: String,
+},
+  eating:  {
+    type: String,
+},
+  dressing:  {
+    type: String,
+},
+  toileting:  {
+    type: String,
+},
+  activities:  {
+    type: String,
+},
+  speechAndHearing:  {
+    type: String,
+},
+  vision:  {
+    type: String,
+},
+  mobility:  {
+    type: String,
+},
+  specialInstructions:  {
+    type: String,
+},
+  primaryDoctor:  {
+    type: String,
+},
+  clinic:  {
+    type: String,
+},
+  clinicAddress:  {
+    type: String,
+},
+  clinicPhone:  {
+    type: String,
+},
+  emergencyTransport:  {
+    type: String,
+},
+  emergencyOption:  {
+    type: String,
+},
+  medications:  {
+    type: String,
+},
+  dosage:  {
+    type: String,
+},
+  numOfTimes:  {
+    type: String,
+},
+  prescribedFor:  {
+    type: String,
+},
+  medications2:  {
+    type: String,
+},
+  dosage2:  {
+    type: String,
+},
+  numOfTimes2:  {
+    type: String,
+},
+  prescribedFor2:  {
+    type: String,
+},
+  medications3:  {
+    type: String,
+},
+  dosage3:  {
+    type: String,
+},
+  numOfTimes3:  {
+    type: String,
+},
+  prescribedFor3:  {
+    type: String,
+},
+});
 
-module.exports = Form;
+module.exports = mongoose.model('Form', formsSchema)
