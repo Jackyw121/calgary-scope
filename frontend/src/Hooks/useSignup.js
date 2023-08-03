@@ -5,12 +5,15 @@ export const useSignup = () => {
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(null)
     const { dispatch } = useAuthContext()
+    const url = "https://calgary-scope.onrender.com"
+
+    
 
     const signup = async (email, password, firstName, lastName) => {
         setIsLoading(true)
         setError(null)
 
-        const response = await fetch('/api/user/signup', {
+        const response = await fetch(url + '/api/user/signup', {
             method: 'POST',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({email, password, firstName, lastName})
