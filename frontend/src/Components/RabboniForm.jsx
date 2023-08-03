@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+const url = "https://calgary-scope.onrender.com"
 
 function RabboniForm() {
   const [form, setForm] = useState({
@@ -111,10 +112,10 @@ function RabboniForm() {
       prescribedFor3: form.prescribedFor3,
       signature: form.signature,
     };
-    axios.post("/api/form/create", {newForm})
-    .then(response => console.log("Hello bb"))
+    axios.post(url + "/api/form/create", {newForm})
+    .then(response => console.log(response))
     .catch(err => console.log(err))
-
+    alert("Form submitted")
   }
 
   return (
