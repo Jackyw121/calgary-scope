@@ -48,29 +48,31 @@ const Navbar = () => {
   return (
     <AppBar position="sticky" color="inherit">
       <Toolbar>
-        <Link to="/">
-          <IconButton>
-            <img
-              src={require("./Assets/scopeLogo.webp")}
-              alt="Calgary Scope Logo"
-              style={{ width: 200, height: 50 }}
-            />
-          </IconButton>
-        </Link>
-        <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-          <Link to="/">
-            <Button style={{ color: "#e7492e" }}>{t("home")}</Button>
-          </Link>
-          <Link to="/about-us">
-            <Button style={{ color: "#e7492e" }}>{t("about_us_title")}</Button>
-          </Link>
-          {admin && (
-            <Link to="/admin">
-              <Button style={{ color: "#e7492e" }}>Admin</Button>
-            </Link>
-          )}
-        </Box>
-        {user  && (
+      <Link to="/">
+      <IconButton>
+        <img src={require("./Assets/scopeLogo.webp")} alt="Calgary Scope Logo" style={{width: 200, height: 50 }}/>
+      </IconButton>
+      </Link>
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+             <Link to="/">
+              <Button color='secondary'>
+              {t('home')}
+              </Button>
+              </Link>
+              <Link to="/about-us">
+              <Button color='secondary'>
+              {t('about_us_title')}
+              </Button>
+              </Link>
+              {admin && (
+              <Link to="/admin">
+              <Button color='secondary'>
+              Admin
+              </Button>
+              </Link>              
+              )}
+          </Box>
+        {user && (
           <div>
             <Link to="/profile">
               <Button style={{ color: "#e7492e" }}>{user.email}</Button>
@@ -82,7 +84,19 @@ const Navbar = () => {
             </Link>
           </div>
         )}
-        {!user && (
+        {admin && (
+          <div>
+            <Link to="/admin">
+              <Button style={{ color: "#e7492e" }}>{admin.email}</Button>
+            </Link>
+            <Link href="/">
+              <Button onClick={handleClick} color="secondary">
+                Log out
+              </Button>
+            </Link>
+          </div>
+        )}
+        {!user && !admin && (
         <div>
         <Link to="/login">
         <Button color="secondary" onClick={handleOpen}>

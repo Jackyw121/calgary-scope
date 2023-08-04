@@ -1,7 +1,7 @@
 import { useFormContext } from "../Hooks/useFormContext"
 import { useAuthContext } from "../Hooks/useAuthContext"
 import ToggleVisibility from "./ToggleVisibility";
-import CompleteFormDetail from "./CompleteFormDetail";
+
 
 const FormDetails = ({ form }) => {
     const { dispatch } = useFormContext()
@@ -30,7 +30,26 @@ const FormDetails = ({ form }) => {
             <p><strong>First Name: </strong>{form.pFirstName}</p>
             <p><strong>Last Name: </strong>{form.pLastName}</p>
             <p><strong>Home Phone: </strong>{form.homeNumber}</p>
-            <ToggleVisibility><CompleteFormDetail/></ToggleVisibility>
+            <ToggleVisibility>
+            <p><strong>Cell Phone: </strong>{form.cellPhoneNumber}</p>
+            <p><strong>Email: </strong>{form.email}</p>
+            <p><strong>Street Address: </strong>{form.streetAddress}</p>
+            <p><strong>First Name: </strong>{form.pFirstName}</p>
+            <p><strong>Last Name: </strong>{form.pLastName}</p>
+            <p><strong>Home Phone: </strong>{form.homeNumber}</p>
+            <p><strong>First Name: </strong>{form.pFirstName}</p>
+            <p><strong>Last Name: </strong>{form.pLastName}</p>
+            <p><strong>Home Phone: </strong>{form.homeNumber}</p>
+            <p><strong>First Name: </strong>{form.pFirstName}</p>
+            <p><strong>Last Name: </strong>{form.pLastName}</p>
+            <p><strong>Home Phone: </strong>{form.homeNumber}</p>
+            <p><strong>First Name: </strong>{form.pFirstName}</p>
+            <p><strong>Last Name: </strong>{form.pLastName}</p>
+            <p><strong>Home Phone: </strong>{form.homeNumber}</p>
+            <p><strong>First Name: </strong>{form.pFirstName}</p>
+            <p><strong>Last Name: </strong>{form.pLastName}</p>
+            <p><strong>Home Phone: </strong>{form.homeNumber}</p>
+            </ToggleVisibility>
             <span className="material-symbols-outlined" onClick={handleClick}>Delete</span>
         </div>
     )

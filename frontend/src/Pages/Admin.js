@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect} from 'react';
+import { useEffect, useState} from 'react';
 import { useFormContext } from '../Hooks/useFormContext';
 import { useAuthContext } from '../Hooks/useAuthContext';
 
@@ -10,7 +10,10 @@ import FormDetails from '../Components/FormDetails';
 const Admin = () => {
     const {forms, dispatch} = useFormContext()
     const {admin} = useAuthContext()
+    const [query, setQuery] = useState("")
 
+
+    
     useEffect(() => {
         const fetchForms = async () => {
             const response = await fetch('http://localhost:4000/api/form', {
@@ -31,8 +34,10 @@ const Admin = () => {
 
     return (
         <div>
-            <div className='userProfile'>
-                {forms && forms.map((form) => (
+            <div className='formProfile'>
+            <input type ="text" placeholder="Search..." className="search" onChange={e=> setQuery(e.target.value)}></input>
+            
+                {forms && forms.filter(form=>form.pFirstName.toLowerCase().includes(query)).map((form) => (
                     <FormDetails key={form._id} form={form}/>
                 ))}
             </div>
