@@ -1,5 +1,7 @@
 // userprofilepage.js
 
+const userprofilepage = () => {
+
 document.addEventListener("DOMContentLoaded", function() {
     fetchUserData();
     initializeEditButton();
@@ -119,4 +121,6 @@ document.addEventListener("DOMContentLoaded", function() {
       reader.readAsDataURL(file);
     });
   }
-  
+}
+
+export default userprofilepage
