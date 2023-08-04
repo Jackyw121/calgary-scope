@@ -20,10 +20,12 @@ import Signup from "./Pages/Signup";
 import Profile from "./Pages/Profile";
 import RabboniFormProfile from "./Pages/RaboboniFormProfile";
 import { useAuthContext } from "./Hooks/useAuthContext";
+import AdminLogin from "./Pages/AdminLogin";
+import AdminSignup from "./Pages/AdminSignup";
 
 // App Component
 const App = () => {
-  const { user } = useAuthContext();
+  const { user, admin } = useAuthContext();
   return (
     <div>
       <BrowserRouter>
@@ -34,28 +36,36 @@ const App = () => {
           <Route
             exact
             path="/admin"
-            element={user ? <Admin /> : <Navigate to="/" />}
+            element={admin ? <Admin /> : <Navigate to="/" />}
           ></Route>
           <Route
             exact
             path="/profile"
-            element={user ? <Profile /> : <Navigate to="/" />}
+            element={user || admin ? <Profile /> : <Navigate to="/" />}
           ></Route>
           <Route
             exact
             path="/login"
-            element={!user ? <Login /> : <Navigate to="/" />}
+            element={!user || !admin ? <Login /> : <Navigate to="/" />}
           ></Route>
           <Route
             exact
             path="/signup"
-            element={!user ? <Signup /> : <Navigate to="/" />}
+            element={!user || !admin ? <Signup /> : <Navigate to="/" />}
           ></Route>
           <Route
             exact
             path="/rabboniform"
             element={<RabboniFormProfile />}
           ></Route>
+          <Route 
+        exact path ="/employee-login"
+        element={!user || !admin? <AdminLogin /> : <Navigate to="/admin" />}
+        ></Route>
+          <Route 
+        exact path ="/employee-signup"
+        element={!user || !admin ? <AdminSignup /> : <Navigate to="/" />}
+        ></Route>
         </Routes>
       </BrowserRouter>
       <Box sx={{ color: "error.main" }}></Box>

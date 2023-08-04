@@ -1,12 +1,10 @@
 import { useState } from "react";
-
-import { useLogin } from "../Hooks/useLogin";
+import { useAdminSignup } from "../Hooks/useAdminSignup";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Link from "@mui/material/Link";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,9 +18,8 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "400px",
     marginTop: "2cm",
     marginLeft: "auto",
-    marginRight: "auto", 
+    marginRight: "auto",
   },
-
   title: {
     marginBottom: theme.spacing(2),
     color: theme.palette.secondary.main,
@@ -45,12 +42,6 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     letterSpacing: "1px",
   },
-  error: {
-    color: "red",
-    marginTop: theme.spacing(2),
-    textAlign: "center",
-    fontWeight: 700,
-  },
   linkContainer: {
     display: "flex",
     flexDirection: "column",
@@ -68,24 +59,60 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Login = () => {
+const AdminSignup = () => {
   const classes = useStyles();
+  const { signup, error, isLoading } = useAdminSignup();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login, error, isLoading } = useLogin();
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [employeeNumber, setEmployeeNumber] = useState("")
+  const [lastName, setLastName] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await login(email, password);
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+    
+    if (!email) {
+      alert("Email field is empty");
+      return;
+    }
+    
+    if (!firstName) {
+      alert("First name field is empty");
+      return;
+    }
+
+    if (!lastName) {
+      alert("Last name field is empty");
+      return;
+    }
+    if (!password) {
+      alert("Password field is empty");
+      return;
+    }
+    if (!employeeNumber) {
+        alert("Employee number field is empty")
+    }
+
+    await signup(email, password, firstName, lastName, employeeNumber);
+
+    console.log(email, firstName, lastName, password, employeeNumber);
   };
 
   return (
-
-    
-    <form className={classes.root} onSubmit={handleSubmit}>
+    <form
+      noValidate
+      autoComplete="off"
+      className={classes.root}
+      onSubmit={handleSubmit}
+    >
       <Typography variant="h4" className={classes.title}>
-        Employee Log in
+        Create an account
       </Typography>
       <div className={classes.form}>
         <TextField
@@ -94,8 +121,35 @@ const Login = () => {
           type="email"
           required
           className={classes.textField}
-          value={email}
           onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
+        <TextField
+          label="First Name"
+          variant="outlined"
+          type="text"
+          required
+          className={classes.textField}
+          onChange={(e) => setFirstName(e.target.value)}
+          value={firstName}
+        />
+        <TextField
+          label="Last Name"
+          variant="outlined"
+          type="text"
+          required
+          className={classes.textField}
+          onChange={(e) => setLastName(e.target.value)}
+          value={lastName}
+        />
+        <TextField
+          label="Employee Number"
+          variant="outlined"
+          type="text"
+          required
+          className={classes.textField}
+          onChange={(e) => setEmployeeNumber(e.target.value)}
+          value={employeeNumber}
         />
         <TextField
           label="Password"
@@ -103,10 +157,18 @@ const Login = () => {
           type="password"
           required
           className={classes.textField}
-          value={password}
           onChange={(e) => setPassword(e.target.value)}
+          value={password}
         />
-        
+        <TextField
+          label="Confirm Password"
+          variant="outlined"
+          type="password"
+          required
+          className={classes.textField}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          value={confirmPassword}
+        />
         <Button
           type="submit"
           variant="contained"
@@ -114,20 +176,12 @@ const Login = () => {
           disabled={isLoading}
           className={classes.button}
         >
-          Log in
+          Sign up
         </Button>
-        {error && <div className={classes.error}>{error}</div>}
-        <div className={classes.linkContainer}>
-          <Link href="/signup" className={classes.link}>
-            Create an Account
-          </Link>
-          <Link href="/forgot-password" className={classes.link}>
-            Forgot Password?
-          </Link>
-        </div>
+        {error && <div className="error">{error}</div>}
       </div>
     </form>
   );
 };
 
-export default Login;
+export default AdminSignup;

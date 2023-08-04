@@ -29,7 +29,8 @@ const Navbar = () => {
   
   const [open, setOpen] = useState(false)
 
-  const { user } = useAuthContext()
+  const { user, admin } = useAuthContext()
+
 
   const { logout } = useLogout()
 
@@ -67,7 +68,7 @@ const Navbar = () => {
               {t('about_us_title')}
               </Button>
               </Link>
-              {user && (
+              {admin && (
               <Link to="/admin">
               <Button color='secondary'>
               Admin
@@ -75,7 +76,7 @@ const Navbar = () => {
               </Link>              
               )}
           </Box>
-        {user && (
+        {user  && (
           <div>
           <Link to='/profile'>
           <Button color='secondary'>{user.email}</Button>
@@ -87,7 +88,19 @@ const Navbar = () => {
         </Link>
           </div>
         )}
-        {!user && (
+        {admin  && (
+          <div>
+          <Link to='/admin'>
+          <Button color='secondary'>{admin.email}</Button>
+          </Link>
+          <Link href='/'>
+        <Button onClick={handleClick} color="secondary">
+          Log out
+        </Button>
+        </Link>
+          </div>
+        )}
+        {!user && !admin && (
         <div>
         <Link to="/login">
         <Button color="secondary" onClick={handleOpen}>

@@ -5,7 +5,7 @@ const validator = require('validator')
 
 const Schema = mongoose.Schema
 
-const userSchema = new Schema({
+const adminSchema = new Schema({
     email: {
         type: String,
         required: true,
@@ -22,13 +22,17 @@ const userSchema = new Schema({
     lastName: {
         type: String,
         required: true
+    },
+    employeeNumber: {
+        type: String,
+        required: true
     }
 })
 
 //static signup method
-userSchema.statics.signup = async function (email, password, firstName, lastName) {
+adminSchema.statics.signup = async function (email, password, firstName, lastName, employeeNumber) {
     // validation
-    if (!email || !password || !firstName || !lastName) {
+    if (!email || !password || !firstName || !lastName || !employeeNumber) {
         throw Error('All fields must be filled')
     }
     if (!validator.isEmail(email)) {
@@ -48,30 +52,30 @@ userSchema.statics.signup = async function (email, password, firstName, lastName
     const salt = await bcrypt.genSalt(10) 
     const hash = await bcrypt.hash(password, salt)
 
-    const user = await this.create({ email, firstName, lastName, password: hash})
+    const admin = await this.create({ email, firstName, lastName, password: hash, employeeNumber})
 
-    return user
+    return admin
 }
 
 //static login method
-userSchema.statics.login = async function(email, password) {
+adminSchema.statics.login = async function(email, password) {
     // validation
     if (!email || !password) {
         throw Error('All fields must be filled')
     }
-    const user = await this.findOne({ email })
+    const admin = await this.findOne({ email })
 
-    if (!user) {
+    if (!admin) {
         throw Error('Invalid login credentials')
     }
 
-    const match = await bcrypt.compare(password, user.password)
+    const match = await bcrypt.compare(password, admin.password)
 
     if (!match) {
         throw Error('Invalid login credentials')
     }
 
-    return user
+    return admin
 }
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model('Admin', adminSchema)

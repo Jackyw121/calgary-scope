@@ -4,7 +4,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const clientRoutes = require("./routes/client");
 const userRoutes = require("./routes/userLogin");
-const formRoutes = require("./routes/formRoute")
+const formRoutes = require("./routes/formRoute");
+const adminRoutes = require("./routes/adminRoute")
 const cors = require("cors");
 
 //express app
@@ -43,3 +44,4 @@ mongoose
 app.use("/api/client", clientRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/form", formRoutes);
+app.use("/api/admin", adminRoutes);

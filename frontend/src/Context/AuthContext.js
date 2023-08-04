@@ -7,27 +7,35 @@ export const authReducer = (state, action) => {
     case 'LOGIN':
       return { user: action.payload }
     case 'LOGOUT':
-      return { user: null }
+      return { user: null, admin: null }
+    case 'ADMINLOGIN':
+      return { admin: action.payload}
     default:
       return state
   }
 }
 
+
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, { 
-    user: null
+    user: null,
+    admin: null
   })
+
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'))
+    const admin = JSON.parse(localStorage.getItem('admin'))
 
     if (user) {
       dispatch({ type: 'LOGIN', payload: user }) 
     }
+    if (admin) {
+      dispatch({ type: 'ADMINLOGIN', payload: admin})
+    }
   }, [])
 
   console.log('AuthContext state:', state)
-  console.log('Role:')
   
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>
