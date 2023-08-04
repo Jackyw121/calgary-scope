@@ -13,7 +13,7 @@ export const useAdminSignup = () => {
         setIsLoading(true)
         setError(null)
 
-        const response = await fetch('http://localhost:4000/api/admin/signup', {
+        const response = await fetch(url + '/api/admin/signup', {
             method: 'POST',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({email, password, firstName, lastName, employeeNumber})

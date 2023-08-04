@@ -11,12 +11,12 @@ const Admin = () => {
     const {forms, dispatch} = useFormContext()
     const {admin} = useAuthContext()
     const [query, setQuery] = useState("")
-
+    const url = "https://calgary-scope.onrender.com"
 
     
     useEffect(() => {
         const fetchForms = async () => {
-            const response = await fetch('http://localhost:4000/api/form', {
+            const response = await fetch(url + '/api/form', {
                 headers: {
                     'Authorization': `Bearer ${admin.token}` 
                 }

@@ -6,12 +6,13 @@ import ToggleVisibility from "./ToggleVisibility";
 const FormDetails = ({ form }) => {
     const { dispatch } = useFormContext()
     const { admin } = useAuthContext()
+    const url = "https://calgary-scope.onrender.com"
 
     const handleClick = async () =>{
         if (!admin) {
             return
         }
-        const response = await fetch('/api/form/' + form._id, {
+        const response = await fetch(url + '/api/form/' + form._id, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${admin.token}` 
