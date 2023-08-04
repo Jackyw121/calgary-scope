@@ -1,33 +1,61 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
-import UserDetails from '../Components/UserDetails';
+import { useEffect} from 'react'
+import { useClientContext } from '../Hooks/useClientContext';
+import { useAuthContext } from '../Hooks/useAuthContext';
 
-
+//components
+import ClientDetails from '../Components/ClientDetails'
+import ClientLoginForm from '../Components/ClientLoginForm';
+ 
 const AdminTest = () => {
-
-    const [users, setUsers] = useState(null)
+    const {clients, dispatch} = useClientContext()
+    const {admin} = useAuthContext()
 
     useEffect(() => {
-        const fetchUsers = async () => {
-            const response = await fetch('/api/user')
+        const fetchClients = async () => {
+            const response = await fetch('http://localhost:4000/api/client', {
+                headers: {
+                    'Authorization': `Bearer ${admin.token}` 
+                }
+            })
             const json = await response.json()
 
             if (response.ok) {
-                setUsers(json)
+                dispatch({type: 'SET_CLIENTS', payload: json})
             }
         }
-        fetchUsers()
-    },[])
+        if (admin) {
+        fetchClients()
+        }
+    }, [dispatch, admin])
 
-    return (
-        <div>
-            <div className='userProfile'>
-                {users && users.map((userProfile) => (
-                    <p key={userProfile._id}>{userProfile.firstName}</p>
-                ))}
-            </div>
-        </div>
-    )
+    // useEffect(() => {
+    //     const fetchForms = async () => {
+    //         const response = await fetch('http://localhost:4000/api/forms', {
+    //             headers: {
+    //                 'Authorization': `Bearer ${admin.token}` 
+    //             }
+    //         })
+    //         const json = await response.json()
+
+    //         if (response.ok) {
+    //             dispatch({type: 'SET_FORMS', payload: json})
+    //         }
+    //     }
+    //     if (admin) {
+    //     fetchForms()
+    //     }
+    // }, [dispatch, admin])
+
+ return    (
+ <div className="admin">
+    <div className='clients'>
+        {clients && clients.map((client) => (
+            <ClientDetails key = {client._id} client={client}/>
+        ))}
+    </div>
+ </div>
+)
 }
-
-export default AdminTest
+ 
+export default AdminTest;

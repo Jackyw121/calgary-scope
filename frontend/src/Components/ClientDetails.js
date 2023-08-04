@@ -6,16 +6,16 @@ import { format } from 'date-fns'
 
 const ClientDetails = ({ client }) => {
     const { dispatch } = useClientContext()
-    const { user } = useAuthContext()
+    const { admin } = useAuthContext()
 
     const handleClick = async () =>{
-        if (!user) {
+        if (!admin) {
             return
         }
         const response = await fetch('/api/client/' + client._id, {
             method: 'DELETE',
             headers: {
-                'Authorization': `Bearer ${user.token}` 
+                'Authorization': `Bearer ${admin.token}` 
             }
         })
         const json = await response.json()

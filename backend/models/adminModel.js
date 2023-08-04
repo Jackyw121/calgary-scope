@@ -25,7 +25,8 @@ const adminSchema = new Schema({
     },
     employeeNumber: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     }
 })
 

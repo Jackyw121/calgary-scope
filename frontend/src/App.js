@@ -22,6 +22,7 @@ import RabboniFormProfile from "./Pages/RaboboniFormProfile";
 import { useAuthContext } from "./Hooks/useAuthContext";
 import AdminLogin from "./Pages/AdminLogin";
 import AdminSignup from "./Pages/AdminSignup";
+import AdminTest from "./Pages/AdminTest";
 
 // App Component
 const App = () => {
@@ -38,6 +39,11 @@ const App = () => {
             path="/admin"
             element={admin ? <Admin /> : <Navigate to="/" />}
           ></Route>
+            <Route
+            exact
+            path="/admintest"
+            element={admin ? <AdminTest /> : <Navigate to="/" />}
+          ></Route>
           <Route
             exact
             path="/profile"
@@ -46,12 +52,12 @@ const App = () => {
           <Route
             exact
             path="/login"
-            element={!user || !admin ? <Login /> : <Navigate to="/" />}
+            element={!user && !admin ? <Login /> : <Navigate to="/" />}
           ></Route>
           <Route
             exact
             path="/signup"
-            element={!user || !admin ? <Signup /> : <Navigate to="/" />}
+            element={!user && !admin ? <Signup /> : <Navigate to="/" />}
           ></Route>
           <Route
             exact
@@ -60,11 +66,11 @@ const App = () => {
           ></Route>
           <Route 
         exact path ="/employee-login"
-        element={!user || !admin? <AdminLogin /> : <Navigate to="/admin" />}
+        element={!user && !admin? <AdminLogin /> : <Navigate to="/" />}
         ></Route>
           <Route 
         exact path ="/employee-signup"
-        element={!user || !admin ? <AdminSignup /> : <Navigate to="/" />}
+        element={!user && !admin ? <AdminSignup /> : <Navigate to="/" />}
         ></Route>
         </Routes>
       </BrowserRouter>

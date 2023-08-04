@@ -78,7 +78,7 @@ const AdminLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await login(email, password);
+    await login(email, password, employeeNumber);
   };
 
   return (

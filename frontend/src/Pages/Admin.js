@@ -1,44 +1,43 @@
 import React from 'react';
-import { useEffect} from 'react'
-import { useClientContext } from '../Hooks/useClientContext';
+import { useEffect} from 'react';
+import { useFormContext } from '../Hooks/useFormContext';
 import { useAuthContext } from '../Hooks/useAuthContext';
 
 //components
-import ClientDetails from '../Components/ClientDetails'
-import ClientLoginForm from '../Components/ClientLoginForm';
-import AdminTest from './AdminTest';
- 
+import FormDetails from '../Components/FormDetails';
+
+
 const Admin = () => {
-    const {clients, dispatch} = useClientContext()
-    const {user} = useAuthContext()
+    const {forms, dispatch} = useFormContext()
+    const {admin} = useAuthContext()
 
     useEffect(() => {
-        const fetchClients = async () => {
-            const response = await fetch('/api/client', {
+        const fetchForms = async () => {
+            const response = await fetch('http://localhost:4000/api/form', {
                 headers: {
-                    'Authorization': `Bearer ${user.token}` 
+                    'Authorization': `Bearer ${admin.token}` 
                 }
             })
             const json = await response.json()
 
             if (response.ok) {
-                dispatch({type: 'SET_CLIENTS', payload: json})
+                dispatch({type: 'SET_FORMS', payload: json})
             }
         }
-        if (user) {
-        fetchClients()
+        if (admin) {
+        fetchForms()
         }
-    }, [dispatch, user])
+    }, [dispatch, admin])
 
- return    (
- <div className="admin">
-    <div className='clients'>
-        {clients && clients.map((client) => (
-            <ClientDetails key = {client._id} client={client}/>
-        ))}
-    </div>
- </div>
-)
+    return (
+        <div>
+            <div className='userProfile'>
+                {forms && forms.map((form) => (
+                    <FormDetails key={form._id} form={form}/>
+                ))}
+            </div>
+        </div>
+    )
 }
- 
-export default Admin;
+
+export default Admin

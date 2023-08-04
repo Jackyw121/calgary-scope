@@ -3,7 +3,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { red,  } from '@mui/material/colors';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-import AdminTest from './AdminTest';
+import AdminTest from './Admin';
 import RabboniForm from './RaboboniFormProfile'
 import { useState } from 'react';
 import FormContainer from '../Components/FormContainer';
