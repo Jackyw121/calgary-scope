@@ -15,7 +15,7 @@ const FormDetails = ({ form }) => {
     const response = await fetch(url + "/api/form/" + form._id, {
       method: "DELETE",
       headers: {
-        Authorization: `Bearer ${admin.token}`,
+        'Authorization': `Bearer ${admin.token}`,
       },
     });
     const json = await response.json();

@@ -100,5 +100,21 @@ const createForm = async (req, res) => {
         res.status(400).json({error: error.message})
     }
 }
+const deleteForm = async (req, res) => {
+    //delete form from db
+    const { id } = req.params
 
-module.exports = { createForm }
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: 'No such form'})
+    }
+
+    const form = await Form.findOneAndDelete({_id: id})
+
+    if (!form) {
+        return res.status(404).json({error: 'No such form'})
+    }
+
+    res.status(200).json(client)
+}
+
+module.exports = { createForm, deleteForm }

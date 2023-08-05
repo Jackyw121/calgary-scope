@@ -1,7 +1,8 @@
-const {createForm} = require('../controllers/formController')
+const {createForm, deleteForm} = require('../controllers/formController')
 const express = require("express");
 const router = express.Router();
 const Form = require("../models/formModel");
+
 
 
 router.route("/create").post( async (req, res) => {
@@ -108,6 +109,10 @@ router.route("/create").post( async (req, res) => {
 router.route("/").get((req, res) => {
   Form.find().then((foundForm) => res.json(foundForm));
 });
+
+//delete form
+
+router.delete('/:id', deleteForm)
 
 
 // router.post("/", createForm)
