@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 
 export default function ToggleVisibility({ children }) {
+  const [show, setShow] = useState();
 
-    const [show, setShow] = useState();
+  function toggleShow() {
+    setShow(!show);
+  }
 
-    function toggleShow() {
-        setShow(!show);
-    }
+  var buttonText = show ? "Hide Component" : "Show Component";
 
-    var buttonText = show ? "Hide Componenet" : "Show Componenet";
-
-    return (
-        <div className="componenet-container">
-            {show && children}
-            <button onClick={toggleShow}>{buttonText}</button>
-        </div>
-    )
+  return (
+    <div className="component-container">
+      {show && children}
+      <button className="btn btn-danger m-2" onClick={toggleShow}>
+        {buttonText}
+      </button>
+    </div>
+  );
 }
