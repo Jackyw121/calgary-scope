@@ -7,7 +7,7 @@ export default function ToggleVisibility({ children }) {
     setShow(!show);
   }
 
-  var buttonText = show ? "Hide Component" : "Show Component";
+  var buttonText = show ? "Hide Rabonni Form" : "Show Rabonni Form";
 
   return (
     <div className="component-container">
