@@ -35,7 +35,7 @@ const Admin = () => {
     return (
         <div>
             <div className='formProfile'>
-            <input type ="text" placeholder="Search..." className="search" onChange={e=> setQuery(e.target.value)}></input>
+            <input type ="text" placeholder="Search by First Name..." className="search" onChange={e=> setQuery(e.target.value)}></input>
             
                 {forms && forms.filter(form=>form.pFirstName.toLowerCase().includes(query)).map((form) => (
                     <FormDetails key={form._id} form={form}/>

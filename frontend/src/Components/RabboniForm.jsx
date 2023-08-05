@@ -1,9 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import {Link, Routes, Route, useNavigate} from 'react-router-dom';
 const url = "https://calgary-scope.onrender.com"
 
 function RabboniForm() {
+
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     pFirstName: "",
     pLastName: "",
@@ -64,6 +67,7 @@ function RabboniForm() {
   }
 
   function submitForm(event) {
+    navigate('/home')
     event.preventDefault()
     const newForm = {
       pFirstName: form.pFirstName,
