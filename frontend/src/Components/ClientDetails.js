@@ -7,12 +7,14 @@ import { format } from 'date-fns'
 const ClientDetails = ({ client }) => {
     const { dispatch } = useClientContext()
     const { admin } = useAuthContext()
+    const url = "https://calgary-scope.onrender.com"
+
 
     const handleClick = async () =>{
         if (!admin) {
             return
         }
-        const response = await fetch('/api/client/' + client._id, {
+        const response = await fetch(url + '/api/client/' + client._id, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${admin.token}` 
@@ -22,6 +24,7 @@ const ClientDetails = ({ client }) => {
 
         if (response.ok) {
             dispatch({type: 'DELETE_CLIENT', payload: json})
+
         }
     }
 

@@ -5,6 +5,7 @@ import { useAuthContext } from '../Hooks/useAuthContext';
 
 //components
 import ClientDetails from '../Components/ClientDetails'
+const url = "https://calgary-scope.onrender.com"
 
  
 const AdminTest = () => {
@@ -13,7 +14,7 @@ const AdminTest = () => {
 
     useEffect(() => {
         const fetchClients = async () => {
-            const response = await fetch('http://localhost:4000/api/client', {
+            const response = await fetch(url + '/api/client', {
                 headers: {
                     'Authorization': `Bearer ${admin.token}` 
                 }

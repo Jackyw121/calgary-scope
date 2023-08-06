@@ -8,22 +8,23 @@ const FormDetails = ({ form }) => {
   const { admin } = useAuthContext();
   const url = "https://calgary-scope.onrender.com";
 
-  const handleClick = async () => {
+  const handleClick = async () =>{
     if (!admin) {
-      return;
+        return
     }
-    const response = await fetch(url + "/api/form/" + form._id, {
-      method: "DELETE",
-      headers: {
-        'Authorization': `Bearer ${admin.token}`,
-      },
-    });
-    const json = await response.json();
+    const response = await fetch(url + '/api/form/' + form._id, {
+        method: 'DELETE',
+        headers: {
+            'Authorization': `Bearer ${admin.token}` 
+        }
+    })
+    const json = await response.json()
 
     if (response.ok) {
-      dispatch({ type: "DELETE_FORM", payload: json });
+        dispatch({type: 'DELETE_CLIENT', payload: json})
+        console.log("This is firing")
     }
-  };
+}
 
   return (
     <div className="container rounded-3">

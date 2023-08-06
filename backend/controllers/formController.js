@@ -114,7 +114,7 @@ const deleteForm = async (req, res) => {
         return res.status(404).json({error: 'No such form'})
     }
 
-    res.status(200).json(client)
+    res.status(200).json(form)
 }
 
 module.exports = { createForm, deleteForm }

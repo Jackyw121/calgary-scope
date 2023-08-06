@@ -1,7 +1,8 @@
-const {createForm, deleteForm} = require('../controllers/formController')
+const {deleteForm} = require('../controllers/formController')
 const express = require("express");
 const router = express.Router();
 const Form = require("../models/formModel");
+const requireAuth = require('../middleware/requireAuth')
 
 
 
@@ -111,6 +112,8 @@ router.route("/").get((req, res) => {
 });
 
 //delete form
+
+router.use(requireAuth)
 
 router.delete('/:id', deleteForm)
 
