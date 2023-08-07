@@ -8,6 +8,13 @@ const url = "https://calgary-scope.onrender.com"
 function RabboniForm() {
 
   const navigate = useNavigate();
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const postalCodePattern = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
+  const phonePattern = /^\d{10}$/;
+  const albertaHealthCardPattern = /^[A-Za-z]{1}\d{9}$/;
+  // This regex validates Alberta Health Card numbers, which start with a letter followed by 9 digits.
+
+
   const [form, setForm] = useState({
     pFirstName: "",
     pLastName: "",
@@ -55,6 +62,7 @@ function RabboniForm() {
     prescribedFor3: "",
     signature: "",
   });
+  const [errors, setErrors] = useState({});
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -66,8 +74,171 @@ function RabboniForm() {
       };
     });
   }
+  function validateForm() {
+    const newErrors = {};
+
+    // Add validation for required fields
+    if (!form.pFirstName) {
+      newErrors.pFirstName = "First Name is required";
+    }
+    if (!form.pLastName) {
+      newErrors.pLastName = "Last Name is required";
+    }
+    if (!form.homeNumber) {
+      newErrors.homeNumber = "Home Number is required";
+    }
+    if (!form.cellPhoneNumber) {
+      newErrors.cellPhoneNumber = "Cell Phone Number is required";
+    }
+    if (!form.email) {
+      newErrors.email = "Email is required";
+    }
+    if (!form.streetAddress) {
+      newErrors.streetAddress = "Street Address is required";
+    }
+    if (!form.city) {
+      newErrors.city = "City is required";
+    }
+    if (!form.province) {
+      newErrors.province = "Province is required";
+    }
+    if (!form.postalCode) {
+      newErrors.postalCode = "Postal Code is required";
+    }
+    if (!form.childFirstName) {
+      newErrors.childFirstName = "Child's First Name is required";
+    }
+    if (!form.childLastName) {
+      newErrors.childLastName = "Child's Last Name is required";
+    }
+    if (!form.childID) {
+      newErrors.childID = "Child ID is required";
+    }
+    if (!form.gender) {
+      newErrors.gender = "Gender is required";
+    }
+    if (!form.birthDate) {
+      newErrors.birthDate = "Birth Date is required";
+    }
+    if (!form.livesAtHome) {
+      newErrors.livesAtHome = "Living Status is required";
+    }
+    if (!form.typeOfService) {
+      newErrors.typeOfService = "Type of Service is required";
+    }
+    if (!form.albertaHealthCardNumber) {
+      newErrors.albertaHealthCardNumber = "Alberta Health Card Number is required";
+    }
+    if (!form.diagnoses) {
+      newErrors.diagnoses = "Diagnoses is required";
+    }
+    if (!form.eating) {
+      newErrors.eating = "Eating information is required";
+    }
+    if (!form.dressing) {
+      newErrors.dressing = "Dressing information is required";
+    }
+    if (!form.toileting) {
+      newErrors.toileting = "Toileting information is required";
+    }
+    if (!form.activities) {
+      newErrors.activities = "Activities information is required";
+    }
+    if (!form.speechAndHearing) {
+      newErrors.speechAndHearing = "Speech and Hearing information is required";
+    }
+    if (!form.vision) {
+      newErrors.vision = "Vision information is required";
+    }
+    if (!form.mobility) {
+      newErrors.mobility = "Mobility information is required";
+    }
+    if (!form.specialInstructions) {
+      newErrors.specialInstructions = "Special Instructions are required";
+    }
+    if (!form.primaryDoctor) {
+      newErrors.primaryDoctor = "Primary Doctor is required";
+    }
+    if (!form.clinic) {
+      newErrors.clinic = "Clinic is required";
+    }
+    if (!form.clinicAddress) {
+      newErrors.clinicAddress = "Clinic Address is required";
+    }
+    if (!form.clinicPhone) {
+      newErrors.clinicPhone = "Clinic Phone is required";
+    }
+    if (!form.emergencyTransport) {
+      newErrors.emergencyTransport = "Emergency Transport information is required";
+    }
+    if (!form.emergencyOption) {
+      newErrors.emergencyOption = "Emergency Option is required";
+    }
+    if (!form.medications) {
+      newErrors.medications = "Medications are required";
+    }
+    if (!form.dosage) {
+      newErrors.dosage = "Dosage is required";
+    }
+    if (!form.numOfTimes) {
+      newErrors.numOfTimes = "Number of Times is required";
+    }
+    if (!form.prescribedFor) {
+      newErrors.prescribedFor = "Prescribed For information is required";
+    }
+    if (!form.medications2) {
+      newErrors.medications2 = "Medications 2 are required";
+    }
+    if (!form.dosage2) {
+      newErrors.dosage2 = "Dosage 2 is required";
+    }
+    if (!form.numOfTimes2) {
+      newErrors.numOfTimes2 = "Number of Times 2 is required";
+    }
+    if (!form.prescribedFor2) {
+      newErrors.prescribedFor2 = "Prescribed For 2 information is required";
+    }
+    if (!form.medications3) {
+      newErrors.medications3 = "Medications 3 are required";
+    }
+    if (!form.dosage3) {
+      newErrors.dosage3 = "Dosage 3 is required";
+    }
+    if (!form.numOfTimes3) {
+      newErrors.numOfTimes3 = "Number of Times 3 is required";
+    }
+    if (!form.prescribedFor3) {
+      newErrors.prescribedFor3 = "Prescribed For 3 information is required";
+    }
+    if (!form.signature) {
+      newErrors.signature = "Signature is required";
+    }
+    // Add regex validation for email, postal code, and phone number fields
+    if (form.email && !emailPattern.test(form.email)) {
+      newErrors.email = "Invalid email address";
+    }
+    if (form.postalCode && !postalCodePattern.test(form.postalCode)) {
+      newErrors.postalCode = "Invalid postal code";
+    }
+    if (form.homeNumber && !phonePattern.test(form.homeNumber)) {
+      newErrors.homeNumber = "Invalid phone number";
+    }
+    if (form.cellPhoneNumber && !phonePattern.test(form.cellPhoneNumber)) {
+      newErrors.cellPhoneNumber = "Invalid phone number";
+    }
+    if (form.albertaHealthCardNumber && !albertaHealthCardPattern.test(form.albertaHealthCardNumber)) {
+      newErrors.albertaHealthCardNumber = "Invalid alberta Health Card Number";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  }
 
   function submitForm(event) {
+    event.preventDefault();
+    const isFormValid = validateForm();
+
+    if (isFormValid) {
     navigate('/')
     event.preventDefault()
     const newForm = {
@@ -120,8 +291,11 @@ function RabboniForm() {
     axios.post(url + "/api/form/create", {newForm})
     .then(response => console.log(response))
     .catch(err => console.log(err))
-    alert("Form submitted")
+    alert("Form submitted");
+  } else {
+    alert("Please fill in all required fields correctly.");
   }
+}
 
   return (
     <div className="container bg-light p-5  rounded-5">
