@@ -4,10 +4,7 @@ const express = require('express')
 const { signupAdmin, loginAdmin, getAdminProfile, getAdminProfiles, deleteAdmin } = require('../controllers/adminController')
 
 const router = express.Router()
-const adminAuth = require('../middleware/requireAuth')
 
-//admin auth
-router.use(adminAuth)
 //get Admin route
 router.get('/:id', getAdminProfile )
 
