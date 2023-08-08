@@ -34,17 +34,6 @@ const Admin = () => {
     <div className="container-desktop px-4">
       <div className="row g-5 d-flex justify-content-center">
         <div className="col-xl-3 col-6 text-center">
-          <div
-            className="profile border bg-light align-middle rounded-4"
-            style={{
-              padding: 2 + "rem",
-              marginTop: 5 + "rem",
-              height: 10 + "rem",
-            }}
-          >
-            <h4>Tyler Okonma</h4>
-            <h6>tylerthecreator@gmail.com</h6>
-          </div>
         </div>
         <div className="col-xl-8">
           <div
