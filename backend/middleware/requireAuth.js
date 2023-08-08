@@ -29,7 +29,7 @@ const requireAuth = async (req, res, next) => {
 const adminAuth = async (req, res, next) => {
 
 
-    //very admin user is authenticed
+    //verify admin user is authenticed
 
     if (!authorization) {
         return res.status(401).json({error: 'Authorization token required'})
