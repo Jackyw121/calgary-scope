@@ -20,12 +20,12 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "400px",
     marginTop: "2cm",
     marginLeft: "auto",
-    marginRight: "auto", 
+    marginRight: "auto",
   },
 
   title: {
     marginBottom: theme.spacing(2),
-    color: theme.palette.secondary.main,
+    color: "#e7492e",
     fontWeight: 700,
     textTransform: "uppercase",
     letterSpacing: "2px",
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
   link: {
     marginTop: theme.spacing(1),
     textDecoration: "none",
-    color: theme.palette.secondary.main,
+    color: "#e7492e",
     fontWeight: 700,
     letterSpacing: "1px",
     "&:hover": {
@@ -72,7 +72,7 @@ const AdminLogin = () => {
   const classes = useStyles();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [employeeNumber, setEmployeeNumber] = useState("")
+  const [employeeNumber, setEmployeeNumber] = useState("");
   const { login, error, isLoading } = useAdminLogin();
 
   const handleSubmit = async (e) => {
@@ -82,8 +82,6 @@ const AdminLogin = () => {
   };
 
   return (
-
-    
     <form className={classes.root} onSubmit={handleSubmit}>
       <Typography variant="h4" className={classes.title}>
         Employee Log in
@@ -98,7 +96,7 @@ const AdminLogin = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-          <TextField
+        <TextField
           label="Employee Number"
           variant="outlined"
           type="text"
@@ -116,11 +114,11 @@ const AdminLogin = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        
+
         <Button
           type="submit"
           variant="contained"
-          color="secondary"
+          color="#e7492e"
           disabled={isLoading}
           className={classes.button}
         >

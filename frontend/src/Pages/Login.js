@@ -20,12 +20,12 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "400px",
     marginTop: "2cm",
     marginLeft: "auto",
-    marginRight: "auto", 
+    marginRight: "auto",
   },
 
   title: {
     marginBottom: theme.spacing(2),
-    color: theme.palette.secondary.main,
+    color: "#e7492e",
     fontWeight: 700,
     textTransform: "uppercase",
     letterSpacing: "2px",
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: "1px",
   },
   error: {
-    color: "red",
+    color: "#e7492e",
     marginTop: theme.spacing(2),
     textAlign: "center",
     fontWeight: 700,
@@ -81,8 +81,6 @@ const Login = () => {
   };
 
   return (
-
-    
     <form className={classes.root} onSubmit={handleSubmit}>
       <Typography variant="h4" className={classes.title}>
         Log in
@@ -106,11 +104,11 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        
+
         <Button
           type="submit"
           variant="contained"
-          color="secondary"
+          color="#e7492e"
           disabled={isLoading}
           className={classes.button}
         >

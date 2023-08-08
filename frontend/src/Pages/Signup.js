@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     marginBottom: theme.spacing(2),
-    color: theme.palette.secondary.main,
+    color: "#e7492e",
     fontWeight: 700,
     textTransform: "uppercase",
     letterSpacing: "2px",
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   link: {
     marginTop: theme.spacing(1),
     textDecoration: "none",
-    color: theme.palette.secondary.main,
+    color: "#e7492e",
     fontWeight: 700,
     letterSpacing: "1px",
     "&:hover": {
@@ -75,12 +75,12 @@ const Signup = () => {
       alert("Passwords do not match");
       return;
     }
-    
+
     if (!email) {
       alert("Email field is empty");
       return;
     }
-    
+
     if (!firstName) {
       alert("First name field is empty");
       return;
@@ -159,7 +159,7 @@ const Signup = () => {
         <Button
           type="submit"
           variant="contained"
-          color="secondary"
+          color="#e7492e"
           disabled={isLoading}
           className={classes.button}
         >

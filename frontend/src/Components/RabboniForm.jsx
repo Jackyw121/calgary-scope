@@ -1,19 +1,17 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import {Link, Routes, Route, useNavigate} from 'react-router-dom';
+import { Link, Routes, Route, useNavigate } from "react-router-dom";
 
-const url = "https://calgary-scope.onrender.com"
+const url = "https://calgary-scope.onrender.com";
 
 function RabboniForm() {
-
   const navigate = useNavigate();
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const postalCodePattern = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
   const phonePattern = /^\d{10}$/;
   const albertaHealthCardPattern = /^[A-Za-z]{1}\d{9}$/;
   // This regex validates Alberta Health Card numbers, which start with a letter followed by 9 digits.
-
 
   const [form, setForm] = useState({
     pFirstName: "",
@@ -127,7 +125,8 @@ function RabboniForm() {
       newErrors.typeOfService = "Type of Service is required";
     }
     if (!form.albertaHealthCardNumber) {
-      newErrors.albertaHealthCardNumber = "Alberta Health Card Number is required";
+      newErrors.albertaHealthCardNumber =
+        "Alberta Health Card Number is required";
     }
     if (!form.diagnoses) {
       newErrors.diagnoses = "Diagnoses is required";
@@ -169,7 +168,8 @@ function RabboniForm() {
       newErrors.clinicPhone = "Clinic Phone is required";
     }
     if (!form.emergencyTransport) {
-      newErrors.emergencyTransport = "Emergency Transport information is required";
+      newErrors.emergencyTransport =
+        "Emergency Transport information is required";
     }
     if (!form.emergencyOption) {
       newErrors.emergencyOption = "Emergency Option is required";
@@ -226,7 +226,10 @@ function RabboniForm() {
     if (form.cellPhoneNumber && !phonePattern.test(form.cellPhoneNumber)) {
       newErrors.cellPhoneNumber = "Invalid phone number";
     }
-    if (form.albertaHealthCardNumber && !albertaHealthCardPattern.test(form.albertaHealthCardNumber)) {
+    if (
+      form.albertaHealthCardNumber &&
+      !albertaHealthCardPattern.test(form.albertaHealthCardNumber)
+    ) {
       newErrors.albertaHealthCardNumber = "Invalid alberta Health Card Number";
     }
 
@@ -239,63 +242,64 @@ function RabboniForm() {
     const isFormValid = validateForm();
 
     if (isFormValid) {
-    navigate('/')
-    event.preventDefault()
-    const newForm = {
-      pFirstName: form.pFirstName,
-      pLastName: form.pLastName,
-      homeNumber: form.homeNumber,
-      cellPhoneNumber: form.cellPhoneNumber,
-      email: form.email,
-      streetAddress: form.streetAddress,
-      city: form.city,
-      province: form.province,
-      postalCode: form.postalCode,
-      childFirstName: form.childFirstName,
-      childLastName: form.childLastName,
-      childID: form.childID,
-      gender: form.gender,
-      birthDate: form.birthDate,
-      livesAtHome: form.livesAtHome,
-      typeOfService: form.typeOfService,
-      albertaHealthCardNumber: form.albertaHealthCardNumber,
-      diagnoses: form.diagnoses,
-      eating: form.eating,
-      dressing: form.dressing,
-      toileting: form.toileting,
-      activities: form.activities,
-      speechAndHearing: form.speechAndHearing,
-      vision: form.vision,
-      mobility: form.mobility,
-      specialInstructions: form.specialInstructions,
-      primaryDoctor: form.primaryDoctor,
-      clinic: form.clinic,
-      clinicAddress: form.clinicAddress,
-      clinicPhone: form.clinicPhone,
-      emergencyTransport: form.emergencyTransport,
-      emergencyOption: form.emergencyOption,
-      medications: form.medications,
-      dosage: form.dosage,
-      numOfTimes: form.numOfTimes,
-      prescribedFor: form.prescribedFor,
-      medications2: form.medications2,
-      dosage2: form.dosage2,
-      numOfTimes2: form.numOfTimes2,
-      prescribedFor2: form.prescribedFor2,
-      medications3: form.medications3,
-      dosage3: form.dosage3,
-      numOfTimes3: form.numOfTimes3,
-      prescribedFor3: form.prescribedFor3,
-      signature: form.signature,
-    };
-    axios.post(url + "/api/form/create", {newForm})
-    .then(response => console.log(response))
-    .catch(err => console.log(err))
-    alert("Form submitted");
-  } else {
-    alert("Please fill in all required fields correctly.");
+      navigate("/");
+      event.preventDefault();
+      const newForm = {
+        pFirstName: form.pFirstName,
+        pLastName: form.pLastName,
+        homeNumber: form.homeNumber,
+        cellPhoneNumber: form.cellPhoneNumber,
+        email: form.email,
+        streetAddress: form.streetAddress,
+        city: form.city,
+        province: form.province,
+        postalCode: form.postalCode,
+        childFirstName: form.childFirstName,
+        childLastName: form.childLastName,
+        childID: form.childID,
+        gender: form.gender,
+        birthDate: form.birthDate,
+        livesAtHome: form.livesAtHome,
+        typeOfService: form.typeOfService,
+        albertaHealthCardNumber: form.albertaHealthCardNumber,
+        diagnoses: form.diagnoses,
+        eating: form.eating,
+        dressing: form.dressing,
+        toileting: form.toileting,
+        activities: form.activities,
+        speechAndHearing: form.speechAndHearing,
+        vision: form.vision,
+        mobility: form.mobility,
+        specialInstructions: form.specialInstructions,
+        primaryDoctor: form.primaryDoctor,
+        clinic: form.clinic,
+        clinicAddress: form.clinicAddress,
+        clinicPhone: form.clinicPhone,
+        emergencyTransport: form.emergencyTransport,
+        emergencyOption: form.emergencyOption,
+        medications: form.medications,
+        dosage: form.dosage,
+        numOfTimes: form.numOfTimes,
+        prescribedFor: form.prescribedFor,
+        medications2: form.medications2,
+        dosage2: form.dosage2,
+        numOfTimes2: form.numOfTimes2,
+        prescribedFor2: form.prescribedFor2,
+        medications3: form.medications3,
+        dosage3: form.dosage3,
+        numOfTimes3: form.numOfTimes3,
+        prescribedFor3: form.prescribedFor3,
+        signature: form.signature,
+      };
+      axios
+        .post(url + "/api/form/create", { newForm })
+        .then((response) => console.log(response))
+        .catch((err) => console.log(err));
+      alert("Form submitted");
+    } else {
+      alert("Please fill in all required fields correctly.");
+    }
   }
-}
 
   return (
     <div className="container bg-light p-5  rounded-5">

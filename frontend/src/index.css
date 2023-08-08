@@ -1,5 +1,5 @@
 /* google font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap");
 
 /* layout */
 :root {
@@ -10,6 +10,8 @@ body {
   background: #f1f1f1;
   margin: 0;
   font-family: "Poppins";
+  max-width: 100%;
+  overflow-x: hidden;
 }
 header {
   background: #fff;
@@ -26,7 +28,7 @@ header a {
   color: #333;
   text-decoration: none;
 }
-.pages{
+.pages {
   max-width: 1400px;
   padding: 20px;
   margin: 0 auto;
@@ -44,7 +46,7 @@ header a {
   border-radius: 4px;
   margin: 20px auto;
   padding: 20px;
-  position:  relative;
+  position: relative;
   box-shadow: 2px 2px 5px rgba(243, 5, 5, 0.274);
 }
 
@@ -72,10 +74,10 @@ header a {
 
 /* forms */
 
-.create { 
+.create {
   margin: 15ch auto;
-  width:250px;
-  }
+  width: 250px;
+}
 .buttonHolder {
   text-align: center;
 }
