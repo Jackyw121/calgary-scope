@@ -33,7 +33,7 @@ const Admin = () => {
   return (
     <div className="container-desktop px-4">
       <div className="row g-5 d-flex justify-content-center">
-        <div className="col-xl-3 col-6 text-center">
+        <div className="col-xl-0 col-6 text-center">
         </div>
         <div className="col-xl-8">
           <div
